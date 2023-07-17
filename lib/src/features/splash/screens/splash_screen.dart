@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/constants/image_string.dart';
 
 
 class SplashScreen extends StatelessWidget {
@@ -20,7 +21,7 @@ class SplashScreen extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Image.asset('assets/logos/logo_white.png'),
+          child: Image.asset(mLogoWhite),
         ),
       ),
     );
