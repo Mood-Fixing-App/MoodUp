@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodup/src/utils/theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,8 +10,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      theme: MAppTheme.darkTheme,
+      home: const Scaffold(
         body: Center(
           child: Text('Helo od!'),
         ),
