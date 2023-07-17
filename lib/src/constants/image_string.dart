@@ -1,3 +1,3 @@
 
 /*------------ Image Paths ------------*/
-const String mLogoWhite = 'assets/images/logo_white.png';
+const String mLogoWhite = 'assets/logos/logo_white.png';
