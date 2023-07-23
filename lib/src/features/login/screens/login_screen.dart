@@ -27,11 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            //! Upper Container
-            SizedBox(
-              height: height * .3,
-              child: Image.asset(kLoginImage),
-            ),
             //! Lower Container
             Container(
               height: height * .7,

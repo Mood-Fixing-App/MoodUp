@@ -5,12 +5,26 @@ import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/constants/image_strings.dart';
 import 'package:moodup/src/common_widgets/white_button.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:moodup/src/features/onboard/models/onboard_model.dart';
+import 'package:moodup/src/common_widgets/onboard/onboard_skip_button.dart';
+import 'package:moodup/src/common_widgets/onboard/onboard_page_indicator.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
+import 'package:moodup/src/features/onboard/models/onboard_whitebutton_model.dart';
 
 //************** Variables **************************************/
 final onboardController = Get.put(OnboardController());
+final whiteButtonModel = WhiteButtonModel(
+  onPressed: () {
+    onboardController.setNavigation(
+      onboardController.pageNumber.value,
+    );
+  },
+  text: onboardController.setButtonText(
+    onboardController.pageNumber.value,
+  ),
+  height: Sizes.kDefaultButtonHeight,
+  width: Sizes.kDefaultButtonWidth,
+);
 
 //************** Variables **************************************/
 
@@ -54,6 +68,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
       ),
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,71 +176,16 @@ class OnboardPage extends StatelessWidget {
 
                   //! Get Started Button or Next Button
                   WhiteButton(
-                    onPressed: () {
-                      onboardController.setNavigation(
-                        onboardController.pageNumber.value,
-                      );
-                    },
-                    text: onboardController.setButtonText(
-                      onboardController.pageNumber.value,
-                    ),
-                    height: Sizes.kDefaultButtonHeight,
-                    width: Sizes.kDefaultButtonWidth,
-                  )
+                    onPressed: whiteButtonModel.onPressed,
+                    text: whiteButtonModel.text,
+                    height: whiteButtonModel.height,
+                    width: whiteButtonModel.width,
+                  ),
                 ],
               )
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-//*************************************** Widgets ************************* */
-
-class SkipButton extends StatelessWidget {
-  final void Function()? onPressed;
-
-  final String text;
-
-  const SkipButton({
-    super.key,
-    required this.onPressed,
-    required this.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-        ),
-      ),
-    );
-  }
-}
-
-class PageIndicator extends StatelessWidget {
-  const PageIndicator({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SmoothPageIndicator(
-      controller: onboardController.onboardpagecontroller,
-      count: 3,
-      effect: const ScrollingDotsEffect(
-        activeDotColor: kWhite,
-        dotColor: kLightBlack,
-        dotHeight: 10,
-        dotWidth: 10,
-        spacing: 8,
       ),
     );
   }
