@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/sizes.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/utils/color_theme.dart';
+import 'package:moodup/src/utils/text_themes.dart';
+import 'package:moodup/src/widgets/white_button.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/constants/image_strings.dart';
-import 'package:moodup/src/common_widgets/white_button.dart';
 
 class LoginOrSignupScreen extends StatefulWidget {
   const LoginOrSignupScreen({super.key});
@@ -23,34 +25,21 @@ class _LoginOrSignupScreenState extends State<LoginOrSignupScreen> {
       child: Container(
         height: screenHeight,
         width: screenWidth,
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          colors: [
-            kLighterGreen,
-            kDarkGreen,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        )),
+        decoration: kLoginOrSignupBackgroundTheme,
         padding: const EdgeInsets.all(Sizes.kDefaultPadding),
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
-                height: screenHeight * 0.4,
-                width: screenWidth,
-                child: Image.asset(kLogoWhite)
-              ),
+                  height: screenHeight * 0.4,
+                  width: screenWidth,
+                  child: Image.asset(kLogoWhite)),
               Column(
                 children: const [
                   Text(
                     tLoginOrSignupTitle,
-                    style: TextStyle(
-                      color: kWhite,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w800
-                    ),
+                    style: kLoginOrSignupTitleTheme,
                   ),
                   SizedBox(
                     height: 10,
@@ -58,16 +47,20 @@ class _LoginOrSignupScreenState extends State<LoginOrSignupScreen> {
                   Text(
                     textAlign: TextAlign.center,
                     tLoginOrSignupSubTitle,
-                    style: TextStyle(
-                      color: kWhite,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: kLoginOrSignupSubtitlesTextStyle,
                   ),
                 ],
               ),
-              WhiteButton(onPressed: (){}, text: 'Login', width: Sizes.kDefaultButtonWidth, height: Sizes.kDefaultButtonHeight),
-              WhiteButton(onPressed: (){}, text: 'Sign Up', width: Sizes.kDefaultButtonWidth, height: Sizes.kDefaultButtonHeight),
+              WhiteButton(
+                  onPressed: () {},
+                  text: 'Login',
+                  width: Sizes.kDefaultButtonWidth,
+                  height: Sizes.kDefaultButtonHeight),
+              WhiteButton(
+                  onPressed: () {},
+                  text: 'Sign Up',
+                  width: Sizes.kDefaultButtonWidth,
+                  height: Sizes.kDefaultButtonHeight),
             ],
           ),
         ),
