@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:moodup/src/constants/sizes.dart';
 import 'package:moodup/src/constants/colors.dart';
-import 'package:moodup/src/constants/image_strings.dart';
+
 
 
 class LoginScreen extends StatefulWidget {

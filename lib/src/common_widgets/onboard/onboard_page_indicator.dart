@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:moodup/src/features/onboard/screens/onboard_screen.dart';
+import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
 
 
 class PageIndicator extends StatelessWidget {
@@ -12,7 +12,7 @@ class PageIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
-      controller: onboardController.onboardpagecontroller,
+      controller: OnboardController.onboardpagecontroller,
       count: 3,
       effect: const ScrollingDotsEffect(
         activeDotColor: kWhite,

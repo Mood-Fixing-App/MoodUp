@@ -4,29 +4,30 @@ import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
 class OnboardController extends GetxController{
   // Page Controller
-  PageController onboardpagecontroller = Get.put(PageController(),tag: 'onboardpagecontroller');
+  static PageController onboardpagecontroller = Get.put(PageController(),tag: 'onboardpagecontroller');
 
   //Page Number
-  RxInt pageNumber = 0.obs;
-  void changePageNumber(int index) {
+  static RxInt pageNumber = 0.obs;
+  static void changePageNumber(int index) {
     pageNumber.value = index;
   }
 
   //Navigations
-  void navigateToNextPage() {
+  static void navigateToNextPage() {
     onboardpagecontroller.nextPage(
       duration: const Duration(milliseconds: 500),
       curve: Curves.ease,
     );
   }
 
-  void navigateToLoginRegisterPage() {
+  //Navigation to register page
+  static void navigateToLoginRegisterPage() {
     Get.off(()=> const DashboardScreen());
   }
 
 
   //Navigatgion Controlling
-  void setNavigation(int index) {
+  static void setNavigation(int index) {
     if (index == 2) {
       navigateToLoginRegisterPage();
     } else {
@@ -35,7 +36,7 @@ class OnboardController extends GetxController{
   }
 
   //Button Text Changer
-  String setButtonText(int index) {
+  static String setButtonText(int index) {
     if (index == 2) {
       return 'Get Started';
     } else {
@@ -44,7 +45,7 @@ class OnboardController extends GetxController{
   }
 
   //Skip Button Visibility
-  bool setSkipButtonVisibility(int index) {
+  static bool setSkipButtonVisibility(int index) {
     if (index == 2) {
       return false;
     } else {
@@ -53,7 +54,9 @@ class OnboardController extends GetxController{
   }
 
   //Skip Button Functionality
-  void skipButtonFunctionality() {
+  static void skipButtonFunctionality() {
     onboardpagecontroller.jumpToPage(2);
   }
+
+  
 }

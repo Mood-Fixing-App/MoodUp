@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/sizes.dart';
 import 'package:moodup/src/constants/colors.dart';
@@ -9,26 +8,9 @@ import 'package:moodup/src/features/onboard/models/onboard_model.dart';
 import 'package:moodup/src/common_widgets/onboard/onboard_skip_button.dart';
 import 'package:moodup/src/common_widgets/onboard/onboard_page_indicator.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
-import 'package:moodup/src/features/onboard/models/onboard_whitebutton_model.dart';
 
-//************** Variables **************************************/
-final onboardController = Get.put(OnboardController());
-final whiteButtonModel = WhiteButtonModel(
-  onPressed: () {
-    onboardController.setNavigation(
-      onboardController.pageNumber.value,
-    );
-  },
-  text: onboardController.setButtonText(
-    onboardController.pageNumber.value,
-  ),
-  height: Sizes.kDefaultButtonHeight,
-  width: Sizes.kDefaultButtonWidth,
-);
 
-//************** Variables **************************************/
-
-//************** Onboard Screen **************************************/
+//************** Section 01:Onboard Screen ***********************************//
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({super.key});
 
@@ -37,14 +19,7 @@ class OnboardScreen extends StatefulWidget {
 }
 
 class _OnboardScreenState extends State<OnboardScreen> {
-  //Disposing the controller
-  @override
-  void dispose() {
-    onboardController.dispose();
-    super.dispose();
-  }
-
-  //! Onboard Pages***************************************************
+  //! ******************* Sub section 01:Onboard Pages************************//
   static final onboardPages = [
     OnboardPage(
       model: OnboardModel(
@@ -68,6 +43,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
       ),
     ),
   ];
+  //! ******************* End: Onboard Pages *********************************//
 
   @override
   Widget build(BuildContext context) {
@@ -75,25 +51,27 @@ class _OnboardScreenState extends State<OnboardScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          //! *************** Sub section 02: PageView ***********************//
           Expanded(
             child: PageView.builder(
               itemBuilder: (context, index) {
-                onboardController.changePageNumber(index);
+                OnboardController.changePageNumber(index);
                 return onboardPages[index];
               },
-              controller: onboardController.onboardpagecontroller,
+              controller: OnboardController.onboardpagecontroller,
               itemCount: onboardPages.length,
             ),
           ),
+          //! *************** End: PageView **********************************//
         ],
       ),
     );
   }
 }
-//************** Onboard Screen  ******************** **************************************/
-//*************************************************************************************** */
+//************** End : Onboard Screen ****************************************//
 
-//******************* Onboard page*********************************************************/
+
+//******************* Section 02 : Onboard page*******************************//
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key, required this.model});
   final OnboardModel model;
@@ -101,7 +79,7 @@ class OnboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //! Background Color
+      //! ************ Sub Section 01 : Background Color *********************//
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -117,16 +95,16 @@ class OnboardPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              //! Skip Button
+               //! ************ SUb Section 02 : SKip Button *****************//
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   //Show and hide skip button
-                  onboardController.setSkipButtonVisibility(
-                          onboardController.pageNumber.value)
+                  OnboardController.setSkipButtonVisibility(
+                          OnboardController.pageNumber.value)
                       ? SkipButton(
                           onPressed: () {
-                            onboardController.skipButtonFunctionality();
+                            OnboardController.skipButtonFunctionality();
                           },
                           text: 'SKIP',
                         )
@@ -137,18 +115,18 @@ class OnboardPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 34),
-              //! Image
+              //! ************ Sub Section 03 : Image ************************//
               Image.asset(model.image),
               const SizedBox(height: 18),
 
-              //! Page Indicator
+              //! ************ Sub Section 04 : Page Indicator ***************//
               const PageIndicator(),
               const SizedBox(height: 18),
 
-              //! Title and Description
+              
               Column(
                 children: [
-                  //! Title
+                  //! ************ Sub Section 05 : Title *******************//
                   Text(model.title,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
@@ -160,7 +138,7 @@ class OnboardPage extends StatelessWidget {
                     height: 10,
                   ),
 
-                  //! Description
+                  ////! ************ Sub Section 06 : Description ************//
                   Text(
                     model.description,
                     textAlign: TextAlign.center,
@@ -174,12 +152,18 @@ class OnboardPage extends StatelessWidget {
                     height: 46,
                   ),
 
-                  //! Get Started Button or Next Button
+                  //! **** Sub Section 07 : Get statrted or Next Button******//
                   WhiteButton(
-                    onPressed: whiteButtonModel.onPressed,
-                    text: whiteButtonModel.text,
-                    height: whiteButtonModel.height,
-                    width: whiteButtonModel.width,
+                    onPressed: () {
+                      OnboardController.setNavigation(
+                        OnboardController.pageNumber.value,
+                      );
+                    },
+                    text: OnboardController.setButtonText(
+                      OnboardController.pageNumber.value,
+                    ),
+                    height: Sizes.kDefaultButtonHeight,
+                    width: Sizes.kDefaultButtonWidth,
                   ),
                 ],
               )
@@ -190,3 +174,4 @@ class OnboardPage extends StatelessWidget {
     );
   }
 }
+//************************** End : Onboard page*******************************//
