@@ -13,6 +13,7 @@ dependencies:
   flutter_screenutil: ^5.7.0
   get: ^4.6.5
   google_fonts: ^4.0.4
+  lottie: ^2.3.2
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:

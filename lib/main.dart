@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/utils/theme.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
 import 'package:moodup/src/features/onboard/screens/onboard_screen.dart';
+import 'package:moodup/src/features/login_or_signup/screens/login_or_signup_screen.dart';
 
 
 void main() {
@@ -22,7 +23,7 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
-      home: SplashScreen(),
+      home: const LoginOrSignupScreen()
     );
   }
 }
