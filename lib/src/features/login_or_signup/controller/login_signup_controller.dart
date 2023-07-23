@@ -1,9 +1,12 @@
 import 'package:get/get.dart';
+import 'package:moodup/src/features/login/screens/login_screen.dart';
+import 'package:moodup/src/features/signup/screens/signup_screen.dart';
 
-class LoginSignUpController extends GetxController {
-  RxBool isObscure = true.obs;
-
-  isObscureActive() {
-    isObscure.value = !isObscure.value;
+class LoginOrSignUpController extends GetxController {
+  static void loginNavigation() {
+    Get.to(const LoginScreen());
+  }
+  static void signUpNavigation() {
+    Get.to(const SignupScreen());
   }
 }

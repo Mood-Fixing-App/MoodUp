@@ -6,6 +6,7 @@ import 'package:moodup/src/utils/text_themes.dart';
 import 'package:moodup/src/widgets/white_button.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/constants/image_strings.dart';
+import 'package:moodup/src/features/login_or_signup/controller/login_signup_controller.dart';
 
 class LoginOrSignupScreen extends StatefulWidget {
   const LoginOrSignupScreen({super.key});
@@ -52,12 +53,16 @@ class _LoginOrSignupScreenState extends State<LoginOrSignupScreen> {
                 ],
               ),
               WhiteButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    LoginOrSignUpController.loginNavigation();
+                  },
                   text: 'Login',
                   width: Sizes.kDefaultButtonWidth,
                   height: Sizes.kDefaultButtonHeight),
               WhiteButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    LoginOrSignUpController.signUpNavigation();
+                  },
                   text: 'Sign Up',
                   width: Sizes.kDefaultButtonWidth,
                   height: Sizes.kDefaultButtonHeight),
