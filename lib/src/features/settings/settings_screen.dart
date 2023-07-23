@@ -29,49 +29,58 @@ class SettingsPage extends StatelessWidget {
   Widget _buildSettingsList() {
     return ListView(
       children: [
-        const Padding(
-          padding: EdgeInsets.all(Sizes.kDefaultPadding),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            leading: Icon(Icons.account_circle),
             title: Text('Account'),
             subtitle: Text('Edit Profile, Change Password'),
+            onTap: () {},
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(Sizes.kDefaultPadding),
+          padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            title: const Text('Dark Mode'),
-            subtitle: const Text('Switch between light and dark modes'),
+            leading: Icon(Icons.lightbulb_outline),
+            title: Text('Dark Mode'),
+            subtitle: Text('Switch between light and dark modes'),
             trailing: Switch(
-              value:
-                  _getOption2Value(), // Implement this method to get the saved value
+              value: _getOption2Value(),
               onChanged: (bool newValue) {
-                _setOption2Value(
-                    newValue); // Implement this method to save the new value
+                _setOption2Value(newValue);
               },
             ),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(Sizes.kDefaultPadding),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            leading: Icon(Icons.timer),
             title: Text('Mood Tracking'),
             subtitle: Text(
-                'Set a specific time to receive daily reminders for mood tracking, choose the time of day you prefer to log your mood.'),
+              'Mood reminder, Mood log time',
+            ),
+            onTap: () {},
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(Sizes.kDefaultPadding),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            leading: Icon(Icons.language),
             title: Text('Language'),
             subtitle: Text(
-                'Choose your preferred app language from a list of available languages.'),
+              'Choose your preferred app language.',
+            ),
+            onTap: () {},
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.all(Sizes.kDefaultPadding),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            leading: Icon(Icons.help),
             title: Text('About and Help'),
             subtitle: Text('App Version, Help Center'),
+            onTap: () {},
           ),
         ),
       ],
