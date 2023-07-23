@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
-import 'package:moodup/src/constants/image_string.dart';
+import 'package:moodup/src/constants/image_strings.dart';
 import 'package:moodup/src/features/splash/controllers/splash_controller.dart';
+
+
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
@@ -13,18 +15,9 @@ class SplashScreen extends StatelessWidget {
     splashcontroller.navigateToHome();
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              kLightBrown,
-              kLightBlue,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        color: kLightGreen,
         child: Center(
-          child: Image.asset(mLogoWhite),
+          child: Image.asset(kLogoWhite),
         ),
       ),
     );

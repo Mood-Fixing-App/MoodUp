@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class MAppTheme {
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme)
+    textTheme: GoogleFonts.quicksandTextTheme(ThemeData.light().textTheme)
   );
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme)
+    textTheme: GoogleFonts.quicksandTextTheme(ThemeData.dark().textTheme)
   );
 }
