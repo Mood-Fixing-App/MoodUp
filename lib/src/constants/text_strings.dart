@@ -14,3 +14,8 @@ const String tonBoardingSubTitle3 =
 const String tLoginOrSignupTitle = "Welcome to MoodUp";
 const String tLoginOrSignupSubTitle =
     "Your personal mood tracking app to help you understand your emotions and improve your mental health.";
+
+/* ----------------- LoginScreen Texts ----------------- */
+const String tLoginText = "Login";
+const String tLoginEmailText = "Email";
+const String tLoginPasswordText = "Password";

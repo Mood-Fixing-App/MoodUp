@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/utils/theme.dart';
+import 'package:moodup/src/features/login/screens/login_screen.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
-import 'package:moodup/src/features/onboard/screens/onboard_screen.dart';
 import 'package:moodup/src/features/login_or_signup/screens/login_or_signup_screen.dart';
+
+
 
 
 void main() {
@@ -21,9 +23,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
-      home: const LoginOrSignupScreen()
+      home: const LoginScreen(),
     );
   }
 }

@@ -4,7 +4,7 @@ import 'package:moodup/src/features/signup/screens/signup_screen.dart';
 
 class LoginOrSignUpController extends GetxController {
   static void loginNavigation() {
-    Get.to(const LoginScreen());
+    Get.to(LoginScreen());
   }
   static void signUpNavigation() {
     Get.to(const SignupScreen());

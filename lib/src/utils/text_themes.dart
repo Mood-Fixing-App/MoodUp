@@ -25,3 +25,9 @@ const kLoginOrSignupTitleTheme = TextStyle(
   fontSize: 30,
   fontWeight: FontWeight.w800,
 );
+
+const kDisplayLarge = TextStyle(
+  fontSize: 40,
+  fontWeight: FontWeight.w800,
+);
+

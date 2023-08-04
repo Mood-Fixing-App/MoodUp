@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/sizes.dart';
-import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/utils/color_theme.dart';
 import 'package:moodup/src/utils/text_themes.dart';
 import 'package:moodup/src/widgets/white_button.dart';

@@ -11,9 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.7.0
+  font_awesome_flutter: ^10.4.0
   get: ^4.6.5
   google_fonts: ^4.0.4
   lottie: ^2.3.2
+  simple_animations: ^5.0.2
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
