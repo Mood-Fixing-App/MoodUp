@@ -5,9 +5,9 @@ import 'package:moodup/src/utils/text_themes.dart';
 import 'package:moodup/src/widgets/white_button.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/constants/image_strings.dart';
-import 'package:moodup/src/widgets/onboard/onboard_skip_button.dart';
+import 'package:moodup/src/widgets/onboard/onboard_skipbutton.dart';
 import 'package:moodup/src/features/onboard/models/onboard_model.dart';
-import 'package:moodup/src/widgets/onboard/onboard_page_indicator.dart';
+import 'package:moodup/src/widgets/onboard/onboard_pageindicator.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
 
 //************** Section 01:Onboard Screen ***********************************//
