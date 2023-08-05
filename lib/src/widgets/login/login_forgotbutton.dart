@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/features/forgot_password/screens/forgot_password_screen.dart';
 
 class ForgotButton extends StatelessWidget {
   const ForgotButton({
@@ -12,7 +14,9 @@ class ForgotButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.offAll(()=>const ForgotScreen());
+          },
           style: OutlinedButton.styleFrom(
             side: const BorderSide(
               color: Colors.transparent,

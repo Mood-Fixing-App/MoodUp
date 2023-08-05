@@ -27,3 +27,6 @@ const String tRegisterEmailText = "Email";
 const String tRegisterFullNameText = "Full Name";
 const String tRegisterPasswordText = "Password";
 const String tRegisterReEnterPasswordText = "Reenter Password";
+
+/* ----------------- ForgotPassword Texts ----------------- */
+const String tForgotPasswordText = "Forgot Password";
