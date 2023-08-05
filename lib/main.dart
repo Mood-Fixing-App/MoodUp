@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/utils/theme.dart';
 import 'package:moodup/src/features/login/screens/login_screen.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
-import 'package:moodup/src/features/login_or_signup/screens/login_or_signup_screen.dart';
+import 'package:moodup/src/features/register/screens/register_screen.dart';
+import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
 
 
@@ -26,7 +27,7 @@ class MainApp extends StatelessWidget {
       
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
-      home: const LoginScreen(),
+      home: const RegisterScreen(),
     );
   }
 }

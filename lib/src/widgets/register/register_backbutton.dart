@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
-class BackButtonLogin extends StatelessWidget {
-  const BackButtonLogin({
+class BackButtonRegister extends StatelessWidget {
+  const BackButtonRegister({
     super.key,
   });
 
@@ -11,7 +11,7 @@ class BackButtonLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.off(() => const LoginOrRegisterScreen());
+        Get.offAll(() => const LoginOrRegisterScreen());
       },
       child: const Icon(Icons.arrow_back),
     );

@@ -19,3 +19,11 @@ const String tLoginOrSignupSubTitle =
 const String tLoginText = "Login";
 const String tLoginEmailText = "Email";
 const String tLoginPasswordText = "Password";
+
+
+/* ----------------- Register Texts ----------------- */
+const String tRegisterText = "Register";
+const String tRegisterEmailText = "Email";
+const String tRegisterFullNameText = "Full Name";
+const String tRegisterPasswordText = "Password";
+const String tRegisterReEnterPasswordText = "Reenter Password";

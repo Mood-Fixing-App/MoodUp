@@ -5,16 +5,16 @@ import 'package:moodup/src/utils/text_themes.dart';
 import 'package:moodup/src/widgets/white_button.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/constants/image_strings.dart';
-import 'package:moodup/src/features/login_or_signup/controller/login_signup_controller.dart';
+import 'package:moodup/src/features/login_or_register/controller/login_signup_controller.dart';
 
-class LoginOrSignupScreen extends StatefulWidget {
-  const LoginOrSignupScreen({super.key});
+class LoginOrRegisterScreen extends StatefulWidget {
+  const LoginOrRegisterScreen({super.key});
 
   @override
-  State<LoginOrSignupScreen> createState() => _LoginOrSignupScreenState();
+  State<LoginOrRegisterScreen> createState() => _LoginOrRegisterScreenState();
 }
 
-class _LoginOrSignupScreenState extends State<LoginOrSignupScreen> {
+class _LoginOrRegisterScreenState extends State<LoginOrRegisterScreen> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -62,7 +62,7 @@ class _LoginOrSignupScreenState extends State<LoginOrSignupScreen> {
                   onPressed: () {
                     LoginOrSignUpController.signUpNavigation();
                   },
-                  text: 'Sign Up',
+                  text: 'Register',
                   width: Sizes.kDefaultButtonWidth,
                   height: Sizes.kDefaultButtonHeight),
             ],
