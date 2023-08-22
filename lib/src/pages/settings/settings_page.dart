@@ -1,10 +1,10 @@
 import 'dart:js';
 import 'package:flutter/material.dart';
-import 'package:moodup/constants/colors.dart';
-import 'package:moodup/pages/settings/abouthelp.dart';
-import 'package:moodup/pages/settings/account_settings.dart';
-import 'package:moodup/pages/settings/language.dart';
-import 'package:moodup/pages/settings/moodtracking.dart';
+import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/pages/settings/abouthelp.dart';
+import 'package:moodup/src/pages/settings/account_settings.dart';
+import 'package:moodup/src/pages/settings/language.dart';
+import 'package:moodup/src/pages/settings/moodtracking.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});

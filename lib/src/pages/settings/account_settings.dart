@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moodup/constants/colors.dart';
+import 'package:moodup/src/constants/colors.dart';
 
-class AccountSettingsScreen extends StatelessWidget {
+class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,9 +12,9 @@ class AccountSettingsScreen extends StatelessWidget {
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              Icon(Icons.arrow_back),
-              SizedBox(width: 8),
-              Text('Account Settings'),
+              Text(
+                'Account Settings',
+              ),
             ],
           ),
         ),
@@ -38,6 +38,7 @@ class AccountSettingsScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 8),
               ListTile(
                 leading: Icon(Icons.person),
                 title: Text('Edit Profile'),
@@ -53,6 +54,7 @@ class AccountSettingsScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 8),
               ListTile(
                 leading: Icon(Icons.lock),
                 title: Text('Change Password'),
@@ -68,6 +70,7 @@ class AccountSettingsScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 8),
               ListTile(
                 leading: Icon(Icons.notifications),
                 title: Text('Notifications'),

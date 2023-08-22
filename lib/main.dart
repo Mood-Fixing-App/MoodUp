@@ -5,7 +5,6 @@ import 'package:moodup/src/utils/theme.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
 import 'package:moodup/src/features/onboard/screens/onboard_screen.dart';
 
-
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,

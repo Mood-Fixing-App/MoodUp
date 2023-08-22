@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moodup/constants/colors.dart';
+import 'package:moodup/src/constants/colors.dart';
 
 class AboutHelpPage extends StatelessWidget {
   @override
