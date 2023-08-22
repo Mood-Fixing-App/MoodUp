@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moodup/pages/notifications/notifications.dart';
+import 'package:moodup/pages/settings/settings_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -26,11 +28,25 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               IconButton(
                 icon: Icon(Icons.notifications),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            NotificationsScreen()), // Navigate to SettingsPage
+                  );
+                },
               ),
               IconButton(
                 icon: Icon(Icons.settings),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            SettingsPage()), // Navigate to SettingsPage
+                  );
+                },
               ),
             ],
           ),
