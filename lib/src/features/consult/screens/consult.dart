@@ -1,0 +1,181 @@
+import 'package:flutter/material.dart';
+import 'package:moodup/src/components/button.dart';
+import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/features/consult/screens/consultbox.dart';
+import 'package:moodup/src/features/notifications/notifications.dart';
+
+class ConsultPage extends StatefulWidget {
+  const ConsultPage({super.key});
+
+  @override
+  State<ConsultPage> createState() => _ConsultPageState();
+}
+
+class _ConsultPageState extends State<ConsultPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: kDarkGreen,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // greetings row
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      const Text(
+                        'You are not alone!',
+                        style: TextStyle(
+                          color: kWhite,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      // Spacer to push icons to the right
+                      const Spacer(),
+
+                      // Notification Icon
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NotificationsScreen(),
+                            ),
+                          );
+                        },
+                        child: const MyButton(
+                          iconData: Icons.notifications,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: kLightGreen,
+                    ),
+                    child: Row(
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.search,
+                            color: kWhite,
+                          ),
+                        ),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Search',
+                              hintStyle: TextStyle(
+                                color: kWhite,
+                              ),
+                              border: InputBorder.none,
+                            ),
+                            style: TextStyle(
+                              color: kWhite,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(
+              height: 10,
+            ),
+
+            Expanded(
+              child: Container(
+                color: kWhite,
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: const [
+                            Text(
+                              'Categories',
+                              style: TextStyle(
+                                color: kBlack,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          height: 100,
+                          child: ListView(
+                            scrollDirection:
+                                Axis.horizontal, // Horizontal scroll
+                            children: const [
+                              ConsultContainer(title: 'Career'),
+                              ConsultContainer(title: 'Relationship'),
+                              ConsultContainer(title: 'Education'),
+                              ConsultContainer(title: 'Other'),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 25,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Consultants',
+                              style: TextStyle(
+                                color: kBlack,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Icon(Icons.more_horiz),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: kWhite,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: const ListTile(
+                            leading: CircleAvatar(
+                              radius: 25,
+                              backgroundImage:
+                                  AssetImage('lib/images/user1.png'),
+                            ),
+                            title: Text('Dr. Sanath Gunarathne'),
+                            subtitle: Text('Phsychologist'),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
