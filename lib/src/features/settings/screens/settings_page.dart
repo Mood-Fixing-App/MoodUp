@@ -15,6 +15,7 @@ class SettingsPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: kDarkGreen,
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
