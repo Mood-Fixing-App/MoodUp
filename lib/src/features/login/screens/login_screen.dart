@@ -1,119 +1,108 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:moodup/src/constants/sizes.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/widgets/login/login_logintext.dart';
+import 'package:moodup/src/widgets/login/login_backbutton.dart';
+import 'package:moodup/src/widgets/login/login_emailfield.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:moodup/src/widgets/login/login_loginbutton.dart';
+import 'package:moodup/src/widgets/login/login_forgotbutton.dart';
+import 'package:moodup/src/widgets/login/login_passwordfield.dart';
+import 'package:moodup/src/widgets/login/login_social_media_button.dart';
+import 'package:moodup/src/features/login/controllers/login_controller.dart';
 
-
-
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class LoginScreen extends GetView<LoginController> {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //Viewport height
-    final double height = MediaQuery.of(context).size.height;
-
-    // ---------------------------------- //
-    return Scaffold(
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: [
-            //! Lower Container
-            Container(
-              height: height * .7,
+    Get.put(LoginController());
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
-                color: kWhite,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(Sizes.kDefaultRadius),
-                  topRight: Radius.circular(Sizes.kDefaultRadius),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [kWhite, kSoftGreen],
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(Sizes.kDefaultPadding),
-                child: Column(
-                  children: [
-                    //! Login User Name
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      child: TextField(
-                        controller: nameController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'User Name',
+              padding: const EdgeInsets.all(Sizes.kDefaultPadding),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const BackButtonLogin(),
+                  const SizedBox(height: 30), // Back Button
+                  const LoginText(),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Please sign in to continue.',
+                    style: TextStyle(fontSize: 18, color: kLightBlack),
+                  ),
+                  const SizedBox(height: 60), // Login Text
+                  Form(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    key: controller.loginFormKey,
+                    // Form
+                    child: Column(
+                      children: [
+                        const EmailTextField(),
+                        const SizedBox(height: 23), // Email Text Input Field
+                        const PasswordTextField(), // Password Text Input Field
+                        const SizedBox(height: 10),
+                        const ForgotButton(),
+                        const SizedBox(height: 37),
+                        Row(
+                          children: const [
+                            Expanded(
+                                child: Divider(
+                              height: 2,
+                              thickness: 2,
+                            )),
+                            SizedBox(width: 10),
+                            Text(
+                              "OR Signup With",
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                                child: Divider(
+                              height: 2,
+                              thickness: 2,
+                            )),
+                          ],
                         ),
-                      ),
-                    ),
-                    //! Login Password
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: TextField(
-                        obscureText: true,
-                        controller: passwordController,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
+                        const SizedBox(height: 37),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: const [
+                            SocialMediaButton(
+                                buttonText: 'Facebook',
+                                icon: FontAwesomeIcons.facebook,
+                                color: Colors.blue),
+                            SocialMediaButton(
+                                buttonText: 'Google',
+                                icon: FontAwesomeIcons.google,
+                                color: Colors.red),
+                          ],
                         ),
-                      ),
-                    ),
-                    //! Forgot Password
-                    TextButton(
-                      onPressed: () {
-                        //forgot password screen
-                      },
-                      child: const Text(
-                        'Forgot Password',
-                      ),
-                    ),
-                    //! Login Button
-                    Container(
-                      height: 50,
-                      width: double.infinity,
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: ElevatedButton(
-                        child: const Text('Login'),
-                        onPressed: () {
-                          if (kDebugMode) {
-                            print(nameController.text);
-                            print(passwordController.text);
-                          }
-                        },
-                      ),
-                    ),
-                    //! Sign Up
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        const Text('Does not have account?'),
-                        TextButton(
-                          child: const Text(
-                            'Sign in',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {
-                            //signup screen
-                          },
-                        )
+                        const SizedBox(height: 44),
+                        // Forgot Button
+                        const LoginButton()
                       ],
                     ),
-                    Container(
-                      width: 459.86,
-                      height: 5,
-                      color: Colors.red,
-                    )
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

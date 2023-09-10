@@ -10,9 +10,15 @@ dependencies:
   animations: ^2.0.7
   flutter:
     sdk: flutter
+  flutter_chat_ui: ^1.6.6
   flutter_screenutil: ^5.7.0
+  font_awesome_flutter: ^10.4.0
   get: ^4.6.5
   google_fonts: ^4.0.4
+  google_nav_bar: ^5.0.6
+  http: ^0.13.6
+  lottie: ^2.3.2
+  simple_animations: ^5.0.2
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:

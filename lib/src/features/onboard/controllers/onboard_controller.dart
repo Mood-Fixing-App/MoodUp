@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
+import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
 class OnboardController extends GetxController{
   // Page Controller
@@ -22,7 +23,7 @@ class OnboardController extends GetxController{
 
   //Navigation to register page
   static void navigateToLoginRegisterPage() {
-    Get.off(()=> const DashboardScreen());
+    Get.to(()=> const LoginOrRegisterScreen() );
   }
 
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/sizes.dart';
-import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/utils/color_theme.dart';
+import 'package:moodup/src/utils/text_themes.dart';
+import 'package:moodup/src/widgets/white_button.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/constants/image_strings.dart';
-import 'package:moodup/src/common_widgets/white_button.dart';
+import 'package:moodup/src/widgets/onboard/onboard_skipbutton.dart';
 import 'package:moodup/src/features/onboard/models/onboard_model.dart';
-import 'package:moodup/src/common_widgets/onboard/onboard_skip_button.dart';
-import 'package:moodup/src/common_widgets/onboard/onboard_page_indicator.dart';
+import 'package:moodup/src/widgets/onboard/onboard_pageindicator.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
-
 
 //************** Section 01:Onboard Screen ***********************************//
 class OnboardScreen extends StatefulWidget {
@@ -70,7 +70,6 @@ class _OnboardScreenState extends State<OnboardScreen> {
 }
 //************** End : Onboard Screen ****************************************//
 
-
 //******************* Section 02 : Onboard page*******************************//
 class OnboardPage extends StatelessWidget {
   const OnboardPage({super.key, required this.model});
@@ -81,21 +80,14 @@ class OnboardPage extends StatelessWidget {
     return Container(
       //! ************ Sub Section 01 : Background Color *********************//
       decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            kLighterGreen,
-            kDarkGreen,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        gradient: kOnboardingBackgroundColorTheme,
       ),
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-               //! ************ SUb Section 02 : SKip Button *****************//
+              //! ************ SUb Section 02 : SKip Button *****************//
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -123,17 +115,14 @@ class OnboardPage extends StatelessWidget {
               const PageIndicator(),
               const SizedBox(height: 18),
 
-              
               Column(
                 children: [
                   //! ************ Sub Section 05 : Title *******************//
-                  Text(model.title,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      )),
+                  Text(
+                    model.title,
+                    textAlign: TextAlign.center,
+                    style: kOnboardingTitleTheme,
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -142,11 +131,7 @@ class OnboardPage extends StatelessWidget {
                   Text(
                     model.description,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                    ),
+                    style: kOnboardingDescriptionTextTheme,
                   ),
                   const SizedBox(
                     height: 46,
