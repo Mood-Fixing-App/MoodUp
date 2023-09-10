@@ -46,11 +46,14 @@ class RegisterScreen extends GetView<RegisterController> {
                   ),
                   const SizedBox(height: 60), // Login Text
                   Form(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    autovalidateMode: controller.isPreviouslyPressed.value
+                        ? AutovalidateMode.onUserInteraction
+                        : AutovalidateMode.disabled,
                     key: controller.registerFormKey,
                     // Form
                     child: Column(
                       children: const [
+                   
                         FullNameTextField(),
                         SizedBox(height: 23),
                         EmailTextField(),
@@ -72,5 +75,4 @@ class RegisterScreen extends GetView<RegisterController> {
     );
   }
 }
-
 

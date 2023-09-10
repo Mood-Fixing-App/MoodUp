@@ -16,6 +16,8 @@ class RegisterController extends GetxController {
   var email = '';
   var password = '';
   var name = '';
+  RxBool isPreviouslyPressed = false.obs;
+  RxBool isLoading = false.obs;
 
   @override
   void onInit() {
@@ -54,10 +56,15 @@ class RegisterController extends GetxController {
     return null;
   }
 
-  void checkRegister() {
+  void register(name, email, password) async {
     final isValid = registerFormKey.currentState!.validate();
+    isLoading.value = true;
     if (isValid) {
-      return;
+      await registerUser(name, email, password);
+      isLoading.value = false;
+    } else {
+      isPreviouslyPressed.value = true;
+      isLoading.value = false;
     }
     registerFormKey.currentState!.save();
   }
@@ -80,9 +87,13 @@ class RegisterController extends GetxController {
 
     try {
       if (response.statusCode == 200) {
-        Get.to(const DashboardScreen());
+        Get.to(()=> const DashboardScreen());
+        return User.fromJson(jsonDecode(response.body));
       } else {
         Get.snackbar("Error", response.body[0]);
+        if (kDebugMode) {
+          print(response.body[0]);
+        }
       }
     } catch (e) {
       if (kDebugMode) {

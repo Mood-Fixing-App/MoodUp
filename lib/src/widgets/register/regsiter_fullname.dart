@@ -17,12 +17,8 @@ class FullNameTextField extends GetView<RegisterController> {
     return TextFormField(
       controller: controller.nameController,
       onSaved: (value) {
-        controller.email = value!;
+        controller.name = value!;
       },
-      validator: (value) {
-        return controller.validateEmail(value!);
-      },
-      keyboardType: TextInputType.emailAddress,
       decoration: decoration(),
     );
   }
