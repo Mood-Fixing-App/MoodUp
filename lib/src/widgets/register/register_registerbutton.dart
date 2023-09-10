@@ -9,7 +9,7 @@ class RegisterButton extends GetView<RegisterController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RegisterController());
+    final controller = Get.find<RegisterController>();
     return SizedBox(
         width: 200,
         height: 51,
@@ -27,6 +27,11 @@ class RegisterButton extends GetView<RegisterController> {
           ),
           onPressed: () {
             controller.checkRegister();
+            controller.registerUser(
+                controller.nameController.text,
+                controller.emailController.text,
+                controller.passwordController.text,
+                );
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0XFF86DB9E),

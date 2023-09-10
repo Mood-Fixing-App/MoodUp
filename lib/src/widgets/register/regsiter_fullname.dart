@@ -15,7 +15,7 @@ class FullNameTextField extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     Get.put(RegisterController());
     return TextFormField(
-      controller: controller.emailController,
+      controller: controller.nameController,
       onSaved: (value) {
         controller.email = value!;
       },

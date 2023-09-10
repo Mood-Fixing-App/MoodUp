@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
 class LoginController extends GetxController {
   RxBool passwordVisible = false.obs;
@@ -41,7 +42,7 @@ class LoginController extends GetxController {
   void checkLogin() {
     final isValid = loginFormKey.currentState!.validate();
     if (isValid) {
-      return;
+      Get.off(()=> const DashboardScreen());
     }
     loginFormKey.currentState!.save();
   }

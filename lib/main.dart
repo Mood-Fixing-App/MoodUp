@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/utils/theme.dart';
+import 'package:moodup/src/features/chat/screens/chat_screen.dart';
 import 'package:moodup/src/features/login/screens/login_screen.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
 import 'package:moodup/src/features/register/screens/register_screen.dart';
+import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 import 'package:moodup/src/features/forgot_password/screens/forgot_password_screen.dart';
 import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
@@ -32,7 +34,8 @@ class MainApp extends StatelessWidget {
       
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
-      home: const ForgotScreen(),
+      home: //SplashScreen(),
+      const RegisterScreen(),
     );
   }
 }
