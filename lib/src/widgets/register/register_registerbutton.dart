@@ -1,16 +1,15 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 
-class RegisterButton extends GetView<RegisterController> {
+class RegisterButton extends StatelessWidget {
   const RegisterButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<RegisterController>();
+    RegisterController controller = Get.find<RegisterController>(tag:'register');
     return SizedBox(
       width: 200,
       height: 51,

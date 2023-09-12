@@ -5,7 +5,7 @@ import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 
-class EmailTextField extends GetView<RegisterController> {
+class EmailTextField extends StatelessWidget{
   
   const EmailTextField({
     super.key,
@@ -13,7 +13,7 @@ class EmailTextField extends GetView<RegisterController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RegisterController());
+    RegisterController controller = Get.find<RegisterController>(tag:'register');
     return TextFormField(
       controller: controller.emailController,
       onSaved: (value) {

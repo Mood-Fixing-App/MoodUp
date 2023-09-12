@@ -5,14 +5,14 @@ import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/constants/text_strings.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 
-class PasswordTextFieldReEnter extends GetView<RegisterController> {
+class PasswordTextFieldReEnter extends StatelessWidget {
   const PasswordTextFieldReEnter({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RegisterController());
+    RegisterController controller = Get.find<RegisterController>(tag:'register');
     return Obx(
       () {
         return TextFormField(
@@ -24,13 +24,13 @@ class PasswordTextFieldReEnter extends GetView<RegisterController> {
           validator: (value) {
             return controller.validateReEnterPassword(value!);
           },
-          decoration: decoration(),
+          decoration: decoration(controller),
         );
       },
     );
   }
 
-  InputDecoration decoration() {
+  InputDecoration decoration(controller) {
     return InputDecoration(
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: kDarkGreen, width: 2.0),

@@ -11,12 +11,12 @@ import 'package:moodup/src/widgets/register/register_registerbutton.dart';
 import 'package:moodup/src/widgets/register/register_passwordfieldreenter.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 
-class RegisterScreen extends GetView<RegisterController> {
+class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(RegisterController());
+    RegisterController controller = Get.find<RegisterController>(tag:'register');
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
