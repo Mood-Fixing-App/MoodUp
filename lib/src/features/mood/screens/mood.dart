@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/features/mood/screens/Emo.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 
@@ -29,7 +29,7 @@ class _MoodPageState extends State<MoodPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hi, John!',
+                        'User.name',
                         style: TextStyle(
                           color: kWhite,
                           fontSize: 24,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/features/consult/screens/consultbox.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 
@@ -44,7 +44,7 @@ class _ConsultPageState extends State<ConsultPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => NotificationsScreen(),
+                              builder: (context) => const NotificationsScreen(),
                             ),
                           );
                         },
@@ -119,7 +119,7 @@ class _ConsultPageState extends State<ConsultPage> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Container(
+                        SizedBox(
                           height: 100,
                           child: ListView(
                             scrollDirection:
@@ -160,8 +160,8 @@ class _ConsultPageState extends State<ConsultPage> {
                           child: const ListTile(
                             leading: CircleAvatar(
                               radius: 25,
-                              backgroundImage:
-                                  AssetImage('lib/images/user1.png'),
+                              // backgroundImage:
+                              //     AssetImage('lib/images/user1.png'),
                             ),
                             title: Text('Dr. Sanath Gunarathne'),
                             subtitle: Text('Phsychologist'),

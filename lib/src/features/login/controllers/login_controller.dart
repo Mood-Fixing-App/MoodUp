@@ -1,5 +1,8 @@
+import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
 class LoginController extends GetxController {
@@ -16,10 +19,8 @@ class LoginController extends GetxController {
     passwordController = TextEditingController();
   }
 
-
   @override
-  void dispose() {
-    super.dispose();
+  void onClose() {
     emailController.dispose();
     passwordController.dispose();
     super.onClose();
@@ -39,10 +40,10 @@ class LoginController extends GetxController {
     return null;
   }
 
-  void checkLogin() {
+  void login(email, passsword) async {
     final isValid = loginFormKey.currentState!.validate();
     if (isValid) {
-      Get.off(()=> const DashboardScreen());
+      await loginUser(email, password);
     }
     loginFormKey.currentState!.save();
   }
@@ -50,4 +51,36 @@ class LoginController extends GetxController {
   void togglePasswordVisibility() {
     passwordVisible.toggle();
   }
+
+  Future loginUser(String email, String password) async {
+    if (kDebugMode) {
+      print(email+password);
+    }
+    Map<String, dynamic> request = {
+      "email": email,
+      "password": password,
+    };
+    Uri uri = Uri.parse(
+        'https://king-prawn-app-zrp6n.ondigitalocean.app/api/auth/login');
+
+    var response = await http.post(
+      uri,
+      body: request,
+      headers: {"Accept": "application/json"},
+    );
+
+    if (response.statusCode == 200) {
+      Get.offAll(() => const DashboardScreen());
+    } else {
+      Get.snackbar(
+        'Error',
+        jsonDecode(response.body)['message'],
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        duration: const Duration(seconds: 5),
+        isDismissible: true,
+      );
+    }
+  }
+  
 }

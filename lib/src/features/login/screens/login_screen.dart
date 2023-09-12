@@ -12,12 +12,12 @@ import 'package:moodup/src/widgets/login/login_passwordfield.dart';
 import 'package:moodup/src/widgets/login/login_social_media_button.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
 
-class LoginScreen extends GetView<LoginController> {
+class LoginScreen extends StatelessWidget{
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginController());
+    LoginController controller = Get.put(LoginController(),tag: 'login');
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -47,7 +47,6 @@ class LoginScreen extends GetView<LoginController> {
                   ),
                   const SizedBox(height: 60), // Login Text
                   Form(
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     key: controller.loginFormKey,
                     // Form
                     child: Column(

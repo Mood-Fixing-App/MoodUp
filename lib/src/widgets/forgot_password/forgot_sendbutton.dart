@@ -26,7 +26,7 @@ class ForgotSendButton extends GetView<LoginController> {
                 fontWeight: FontWeight.bold),
           ),
           onPressed: () {
-            controller.checkLogin();
+            
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0XFF86DB9E),

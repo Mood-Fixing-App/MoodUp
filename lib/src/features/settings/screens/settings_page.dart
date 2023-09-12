@@ -1,10 +1,12 @@
-import 'dart:js';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
-import 'package:moodup/src/features/settings/screens/abouthelp.dart';
-import 'package:moodup/src/features/settings/screens/account_settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/settings/screens/language.dart';
+import 'package:moodup/src/features/login/screens/login_screen.dart';
+import 'package:moodup/src/features/settings/screens/abouthelp.dart';
 import 'package:moodup/src/features/settings/screens/moodtracking.dart';
+import 'package:moodup/src/features/settings/screens/account_settings.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -35,9 +37,9 @@ class SettingsPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Account'),
-            subtitle: Text('Edit Profile, Change Password'),
+            leading: const Icon(Icons.account_circle),
+            title: const Text('Account'),
+            subtitle: const Text('Edit Profile, Change Password'),
             onTap: () {
               Navigator.push(
                 context,
@@ -51,9 +53,9 @@ class SettingsPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.lightbulb_circle_sharp), // Leading Icon
-            title: Text('Dark Mode'),
-            subtitle: Text('Switch between light and dark modes'),
+            leading: const Icon(Icons.lightbulb_circle_sharp), // Leading Icon
+            title: const Text('Dark Mode'),
+            subtitle: const Text('Switch between light and dark modes'),
             trailing: Switch(
               value: _getOption2Value(),
               onChanged: (bool newValue) {
@@ -65,9 +67,9 @@ class SettingsPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.timer),
-            title: Text('Mood Tracking'),
-            subtitle: Text('Mood reminder, Mood log time'),
+            leading: const Icon(Icons.timer),
+            title: const Text('Mood Tracking'),
+            subtitle: const Text('Mood reminder, Mood log time'),
             onTap: () {
               Navigator.push(
                 context,
@@ -81,9 +83,9 @@ class SettingsPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.language),
-            title: Text('Language'),
-            subtitle: Text('Choose your preferred app language.'),
+            leading: const Icon(Icons.language),
+            title: const Text('Language'),
+            subtitle: const Text('Choose your preferred app language.'),
             onTap: () {
               Navigator.push(
                 context,
@@ -97,9 +99,34 @@ class SettingsPage extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
-            leading: Icon(Icons.help),
-            title: Text('About and Help'),
-            subtitle: Text('App Version, Help Center'),
+            leading: const Icon(Icons.logout),
+            title: const Text('Logout'),
+            onTap: () async {
+              Get.defaultDialog(
+                title: 'Logout',
+                middleText: 'Are you sure you want to logout?',
+                textConfirm: 'Yes',
+                textCancel: 'No',
+                confirmTextColor: kWhite,
+                buttonColor: kDarkGreen,
+                cancelTextColor: kDarkGreen,
+                onConfirm: () async {
+                  final SharedPreferences sharedPreferences =
+                      await SharedPreferences.getInstance();
+                  sharedPreferences.remove('email');
+                  Get.offAll(() => const LoginScreen());
+                },
+                onCancel: () {},
+              );
+            },
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListTile(
+            leading: const Icon(Icons.help),
+            title: const Text('About and Help'),
+            subtitle: const Text('App Version, Help Center'),
             onTap: () {
               Navigator.push(
                 context,

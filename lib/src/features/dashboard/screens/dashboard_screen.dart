@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:moodup/src/constants/colors.dart';
-import 'package:moodup/src/features/consult/screens/consult.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:moodup/src/features/mood/screens/mood.dart';
 import 'package:moodup/src/features/post/screens/post.dart';
+import 'package:moodup/src/features/consult/screens/consult.dart';
 import 'package:moodup/src/features/settings/screens/settings_page.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0; // Current selected tab index
-  PageController _pageController = PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 0);
 
   // Function to change the selected tab
   void _onTabChange(int index) {

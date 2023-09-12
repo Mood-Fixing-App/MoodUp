@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
@@ -58,6 +59,7 @@ class RegisterController extends GetxController {
 
   void register(name, email, password) async {
     final isValid = registerFormKey.currentState!.validate();
+
     isLoading.value = true;
     if (isValid) {
       await registerUser(name, email, password);
@@ -87,7 +89,9 @@ class RegisterController extends GetxController {
 
     try {
       if (response.statusCode == 200) {
-        Get.to(()=> const DashboardScreen());
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('email', email);
+        Get.to(() => const DashboardScreen());
         return User.fromJson(jsonDecode(response.body));
       } else {
         Get.snackbar("Error", response.body[0]);

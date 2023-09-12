@@ -53,7 +53,6 @@ class RegisterScreen extends GetView<RegisterController> {
                     // Form
                     child: Column(
                       children: const [
-                   
                         FullNameTextField(),
                         SizedBox(height: 23),
                         EmailTextField(),
