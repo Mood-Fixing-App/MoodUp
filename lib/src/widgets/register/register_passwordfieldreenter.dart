@@ -17,7 +17,7 @@ class PasswordTextFieldReEnter extends GetView<RegisterController> {
       () {
         return TextFormField(
           controller: controller.reenterpasswordController,
-          obscureText: controller.passwordVisible.value,
+          obscureText: !controller.passwordVisible.value,
           onSaved: (value) {
             controller.password = value!;
           },

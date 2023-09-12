@@ -11,7 +11,7 @@ class BackButtonLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.off(() => const LoginOrRegisterScreen());
+        Get.offAll(() => const LoginOrRegisterScreen());
       },
       child: const Icon(Icons.arrow_back),
     );

@@ -18,7 +18,7 @@ class PasswordTextField extends StatelessWidget {
       () {
         return TextFormField(
           controller: controller.passwordController,
-          obscureText: controller.passwordVisible.value,
+          obscureText: !controller.passwordVisible.value,
           onSaved: (value) {
             controller.password = value!;
           },

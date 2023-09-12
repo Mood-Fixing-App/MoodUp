@@ -11,6 +11,7 @@ class LoginController extends GetxController {
   late TextEditingController emailController, passwordController;
   var email = '';
   var password = '';
+  var isLoading = false.obs;
 
   @override
   void onInit() {
@@ -40,13 +41,15 @@ class LoginController extends GetxController {
     return null;
   }
 
-  void login(email, passsword) async {
-    final isValid = loginFormKey.currentState!.validate();
-    if (isValid) {
-      await loginUser(email, password);
-    }
-    loginFormKey.currentState!.save();
-  }
+  // void login(email, passsword) async {
+  //   final isValid = loginFormKey.currentState!.validate();
+  //   isLoading.value = true;
+  //   if (isValid) {
+  //     await loginUser(email, password);
+  //     isLoading.value = false;
+  //   }
+  //   loginFormKey.currentState!.save();
+  // }
 
   void togglePasswordVisibility() {
     passwordVisible.toggle();
@@ -54,7 +57,7 @@ class LoginController extends GetxController {
 
   Future loginUser(String email, String password) async {
     if (kDebugMode) {
-      print(email+password);
+      print(email + password);
     }
     Map<String, dynamic> request = {
       "email": email,
@@ -82,5 +85,4 @@ class LoginController extends GetxController {
       );
     }
   }
-  
 }

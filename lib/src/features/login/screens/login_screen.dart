@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    LoginController controller = Get.put(LoginController(),tag: 'login');
+    final controller = Get.find<LoginController>(tag: 'login');
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(

@@ -32,6 +32,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(()=>LoginController(),tag: 'login',fenix: true);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
