@@ -10,6 +10,7 @@ import 'package:moodup/src/features/register/screens/register_screen.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
+import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:moodup/src/features/forgot_password/screens/forgot_password_screen.dart';
 import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
@@ -36,6 +37,7 @@ class MainApp extends StatelessWidget {
 
     Get.lazyPut(()=>LoginController(),tag: 'login',fenix: true);
     Get.lazyPut(()=>RegisterController(),tag: 'register',fenix: true);
+    Get.lazyPut(()=>DashboardController(),tag: 'dashboard',fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

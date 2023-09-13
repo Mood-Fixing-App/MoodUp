@@ -29,7 +29,7 @@ class _MoodPageState extends State<MoodPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'User.name',
+                        "Hi,Hashan",
                         style: TextStyle(
                           color: kWhite,
                           fontSize: 24,
