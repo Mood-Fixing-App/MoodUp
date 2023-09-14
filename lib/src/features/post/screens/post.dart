@@ -5,7 +5,7 @@ class PostPage extends StatefulWidget {
   const PostPage({Key? key}) : super(key: key);
 
   @override
-  _PostPageState createState() => _PostPageState();
+  State<PostPage> createState() => _PostPageState();
 }
 
 class _PostPageState extends State<PostPage> {
@@ -44,7 +44,7 @@ class _PostPageState extends State<PostPage> {
               decoration: InputDecoration(
                 hintText: 'What\'s on your mind?',
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.send),
+                  icon: const Icon(Icons.send),
                   onPressed: () {
                     String text = postTextController.text;
                     if (text.isNotEmpty) {

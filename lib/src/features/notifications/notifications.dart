@@ -27,25 +27,25 @@ class NotificationsScreen extends StatelessWidget {
     return ListView(
       children: [
         ListTile(
-          leading: Icon(Icons.notifications),
-          title: Text('Reminder: Log Your Mood'),
-          subtitle: Text('It\'s time to log your daily mood.'),
+          leading: const Icon(Icons.notifications),
+          title: const Text('Reminder: Log Your Mood'),
+          subtitle: const Text('It\'s time to log your daily mood.'),
           onTap: () {
             // Handle tapping on the notification
           },
         ),
         ListTile(
-          leading: Icon(Icons.notifications),
-          title: Text('New Mood Insights'),
-          subtitle: Text('Check out your new mood analysis.'),
+          leading: const Icon(Icons.notifications),
+          title: const Text('New Mood Insights'),
+          subtitle: const Text('Check out your new mood analysis.'),
           onTap: () {
             // Handle tapping on the notification
           },
         ),
         ListTile(
-          leading: Icon(Icons.notifications),
-          title: Text('Update: MoodFix App'),
-          subtitle: Text('A new version of the MoodFix app is available.'),
+          leading: const Icon(Icons.notifications),
+          title: const Text('Update: MoodFix App'),
+          subtitle: const Text('A new version of the MoodFix app is available.'),
           onTap: () {
             // Handle tapping on the notification
           },

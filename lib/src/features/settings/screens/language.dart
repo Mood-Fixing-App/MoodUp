@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 
 class LanguagePage extends StatelessWidget {
+  const LanguagePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,14 +31,14 @@ class LanguagePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Choose Your Preferred App Language',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w100,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               LanguageOptionTile(
                 language: 'English',
                 isSelected:
@@ -90,7 +92,7 @@ class LanguageOptionTile extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
 
-  const LanguageOptionTile({
+  const LanguageOptionTile({super.key, 
     required this.language,
     required this.isSelected,
     required this.onTap,
@@ -101,8 +103,8 @@ class LanguageOptionTile extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       leading: isSelected
-          ? Icon(Icons.radio_button_checked)
-          : Icon(Icons.radio_button_unchecked),
+          ? const Icon(Icons.radio_button_checked)
+          : const Icon(Icons.radio_button_unchecked),
       title: Text(language),
     );
   }

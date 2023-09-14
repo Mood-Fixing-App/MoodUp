@@ -4,7 +4,7 @@ import 'package:moodup/src/constants/colors.dart';
 class ConsultContainer extends StatelessWidget {
   final String title;
 
-  const ConsultContainer({required this.title});
+  const ConsultContainer({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {

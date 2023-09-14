@@ -20,7 +20,7 @@ class Emo extends StatelessWidget {
       child: Center(
         child: Text(
           emo,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 28,
           ),
         ),

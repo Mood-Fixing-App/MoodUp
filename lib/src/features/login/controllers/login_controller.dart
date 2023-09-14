@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
 class LoginController extends GetxController {
@@ -12,6 +14,7 @@ class LoginController extends GetxController {
   var email = '';
   var password = '';
   var isLoading = false.obs;
+  var user = User().obs;
 
   @override
   void onInit() {
@@ -56,6 +59,7 @@ class LoginController extends GetxController {
   }
 
   Future loginUser(String email, String password) async {
+    isLoading.value = true;
     if (kDebugMode) {
       print(email + password);
     }
@@ -73,6 +77,10 @@ class LoginController extends GetxController {
     );
 
     if (response.statusCode == 200) {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('email', email);
+      isLoading.value = false;
+
       Get.offAll(() => const DashboardScreen());
     } else {
       Get.snackbar(

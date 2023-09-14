@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 
 class AccountPage extends StatelessWidget {
+  const AccountPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,11 +29,11 @@ class AccountPage extends StatelessWidget {
     return ListView(
       children: [
         Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Profile',
                 style: TextStyle(
                   fontSize: 18,
@@ -40,14 +42,14 @@ class AccountPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               ListTile(
-                leading: Icon(Icons.person),
-                title: Text('Edit Profile'),
+                leading: const Icon(Icons.person),
+                title: const Text('Edit Profile'),
                 onTap: () {
                   // Navigate to the edit profile screen
                 },
               ),
-              Divider(),
-              Text(
+              const Divider(),
+              const Text(
                 'Security',
                 style: TextStyle(
                   fontSize: 18,
@@ -56,14 +58,14 @@ class AccountPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               ListTile(
-                leading: Icon(Icons.lock),
-                title: Text('Change Password'),
+                leading: const Icon(Icons.lock),
+                title: const Text('Change Password'),
                 onTap: () {
                   // Navigate to the change password screen
                 },
               ),
-              Divider(),
-              Text(
+              const Divider(),
+              const Text(
                 'App Settings',
                 style: TextStyle(
                   fontSize: 18,
@@ -72,23 +74,23 @@ class AccountPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               ListTile(
-                leading: Icon(Icons.notifications),
-                title: Text('Notifications'),
+                leading: const Icon(Icons.notifications),
+                title: const Text('Notifications'),
                 onTap: () {
                   // Navigate to the notifications settings screen
                 },
               ),
               ListTile(
-                leading: Icon(Icons.color_lens),
-                title: Text('Theme'),
+                leading: const Icon(Icons.color_lens),
+                title: const Text('Theme'),
                 onTap: () {
                   // Navigate to the theme selection screen
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                leading: Icon(Icons.logout),
-                title: Text('Log Out'),
+                leading: const Icon(Icons.logout),
+                title: const Text('Log Out'),
                 onTap: () {
                   // Handle log out action
                 },

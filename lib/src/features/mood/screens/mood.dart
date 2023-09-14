@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/components/button.dart';
-import 'package:moodup/src/features/mood/screens/Emo.dart';
+import 'package:moodup/src/features/mood/screens/emotion.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 
 class MoodPage extends StatefulWidget {
@@ -27,9 +27,9 @@ class _MoodPageState extends State<MoodPage> {
                   // Hi, John!
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
-                        'User.name',
+                        "Hi,Hashan",
                         style: TextStyle(
                           color: kWhite,
                           fontSize: 24,
@@ -191,7 +191,7 @@ class _MoodPageState extends State<MoodPage> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       padding: const EdgeInsets.all(120),
-                      child: Center(
+                      child: const Center(
                         child: Icon(
                           Icons.camera_alt_rounded,
                           size: 60,
