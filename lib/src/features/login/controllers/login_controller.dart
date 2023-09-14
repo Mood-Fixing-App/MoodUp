@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
@@ -14,6 +16,7 @@ class LoginController extends GetxController {
   var email = '';
   var password = '';
   var isLoading = false.obs;
+  var user = User().obs;
   var user = User().obs;
 
   @override

@@ -31,6 +31,7 @@ class MainApp extends StatelessWidget {
     Get.lazyPut(()=>LoginController(),tag: 'login',fenix: true);
     Get.lazyPut(()=>RegisterController(),tag: 'register',fenix: true);
     Get.lazyPut(()=>DashboardController(),tag: 'dashboard',fenix: true);
+    Get.lazyPut(()=>DashboardController(),tag: 'dashboard',fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
