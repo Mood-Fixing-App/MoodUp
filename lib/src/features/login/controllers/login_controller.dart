@@ -14,7 +14,6 @@ class LoginController extends GetxController {
   var email = '';
   var password = '';
   var isLoading = false.obs;
-  
 
   @override
   void onInit() {
@@ -76,22 +75,36 @@ class LoginController extends GetxController {
       headers: {"Accept": "application/json"},
     );
 
-    if (response.statusCode == 200) {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('email', email);
-      isLoading.value = false;
-      
+    var data = jsonDecode(response.body);
 
-      Get.offAll(() => const DashboardScreen());
-    } else {
+    try {
+      if (data['status'] == 'success') {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('email', email);
+        isLoading.value = false;
+
+        Get.offAll(() => const DashboardScreen());
+      } else {
+        Get.snackbar(
+          'Error',
+          jsonDecode(response.body)['message'],
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          duration: const Duration(seconds: 5),
+          isDismissible: true,
+        );
+        isLoading.value = false;
+      }
+    } catch (e) {
       Get.snackbar(
         'Error',
-        jsonDecode(response.body)['message'],
+        'check your email and password or you have not registered yet',
         backgroundColor: Colors.red,
         colorText: Colors.white,
         duration: const Duration(seconds: 5),
         isDismissible: true,
       );
+      isLoading.value = false;
     }
   }
 }

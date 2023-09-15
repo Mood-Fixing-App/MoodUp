@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/sizes.dart';
 import 'package:moodup/src/utils/color_theme.dart';
@@ -19,6 +21,9 @@ class OnboardScreen extends StatefulWidget {
 }
 
 class _OnboardScreenState extends State<OnboardScreen> {
+  
+  static var controller = Get.find<OnboardController>(tag: 'onboard');
+
   //! ******************* Sub section 01:Onboard Pages************************//
   static final onboardPages = [
     OnboardPage(
@@ -27,13 +32,14 @@ class _OnboardScreenState extends State<OnboardScreen> {
         description: tonBoardingSubTitle1,
         image: kOnboardingImage1,
       ),
+      controller: controller,
     ),
     OnboardPage(
       model: OnboardModel(
-        title: tonBoardingTitle2,
-        description: tonBoardingSubTitle2,
-        image: kOnboardingImage2,
-      ),
+          title: tonBoardingTitle2,
+          description: tonBoardingSubTitle2,
+          image: kOnboardingImage2),
+      controller: controller,
     ),
     OnboardPage(
       model: OnboardModel(
@@ -41,6 +47,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
         description: tonBoardingSubTitle3,
         image: kOnboardingImage3,
       ),
+      controller: controller,
     ),
   ];
   //! ******************* End: Onboard Pages *********************************//
@@ -55,10 +62,10 @@ class _OnboardScreenState extends State<OnboardScreen> {
           Expanded(
             child: PageView.builder(
               itemBuilder: (context, index) {
-                OnboardController.changePageNumber(index);
+                controller.changePageNumber(index);
                 return onboardPages[index];
               },
-              controller: OnboardController.onboardpagecontroller,
+              controller: controller.onboardpagecontroller,
               itemCount: onboardPages.length,
             ),
           ),
@@ -72,8 +79,9 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
 //******************* Section 02 : Onboard page*******************************//
 class OnboardPage extends StatelessWidget {
-  const OnboardPage({super.key, required this.model});
+  const OnboardPage({super.key, required this.model, required this.controller});
   final OnboardModel model;
+  final OnboardController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -92,11 +100,11 @@ class OnboardPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   //Show and hide skip button
-                  OnboardController.setSkipButtonVisibility(
-                          OnboardController.pageNumber.value)
+                  controller
+                          .setSkipButtonVisibility(controller.pageNumber.value)
                       ? SkipButton(
                           onPressed: () {
-                            OnboardController.skipButtonFunctionality();
+                            controller.skipButtonFunctionality();
                           },
                           text: 'SKIP',
                         )
@@ -108,7 +116,12 @@ class OnboardPage extends StatelessWidget {
               ),
               const SizedBox(height: 34),
               //! ************ Sub Section 03 : Image ************************//
-              Image.asset(model.image),
+              // Image.asset(model.image),
+              Lottie.asset(
+                model.image,
+                height: 300,
+                width: 300,
+              ),
               const SizedBox(height: 18),
 
               //! ************ Sub Section 04 : Page Indicator ***************//
@@ -140,12 +153,12 @@ class OnboardPage extends StatelessWidget {
                   //! **** Sub Section 07 : Get statrted or Next Button******//
                   WhiteButton(
                     onPressed: () {
-                      OnboardController.setNavigation(
-                        OnboardController.pageNumber.value,
+                      controller.setNavigation(
+                        controller.pageNumber.value,
                       );
                     },
-                    text: OnboardController.setButtonText(
-                      OnboardController.pageNumber.value,
+                    text: controller.setButtonText(
+                      controller.pageNumber.value,
                     ),
                     height: Sizes.kDefaultButtonHeight,
                     width: Sizes.kDefaultButtonWidth,
