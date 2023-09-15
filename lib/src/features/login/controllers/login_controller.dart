@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
-
 class LoginController extends GetxController {
   RxBool passwordVisible = false.obs;
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -15,8 +14,7 @@ class LoginController extends GetxController {
   var email = '';
   var password = '';
   var isLoading = false.obs;
-  var user = User().obs;
-
+  
 
   @override
   void onInit() {
@@ -25,12 +23,12 @@ class LoginController extends GetxController {
     passwordController = TextEditingController();
   }
 
-  @override
-  void onClose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.onClose();
-  }
+  // @override
+  // void onClose() {
+  //   emailController.dispose();
+  //   passwordController.dispose();
+  //   super.onClose();
+  // }
 
   String? validateEmail(String value) {
     if (!GetUtils.isEmail(value)) {
@@ -82,6 +80,7 @@ class LoginController extends GetxController {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString('email', email);
       isLoading.value = false;
+      
 
       Get.offAll(() => const DashboardScreen());
     } else {
