@@ -13,7 +13,7 @@ class ConsultContainer extends StatelessWidget {
       margin: const EdgeInsets.only(right: 10.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: kDarkGreen,
+        color: kGreen,
       ),
       child: Center(
         child: Text(
