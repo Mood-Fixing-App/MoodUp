@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:moodup/src/constants/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
@@ -88,9 +89,9 @@ class LoginController extends GetxController {
         Get.snackbar(
           'Error',
           jsonDecode(response.body)['message'],
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
           duration: const Duration(seconds: 5),
+          icon: const Icon(Icons.error),
+          backgroundColor: kLightGreen,
           isDismissible: true,
         );
         isLoading.value = false;
@@ -98,9 +99,9 @@ class LoginController extends GetxController {
     } catch (e) {
       Get.snackbar(
         'Error',
-        'check your email and password or you have not registered yet',
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
+        'You have not registered yet',
+        backgroundColor: kLightGreen,
+        icon: const Icon(Icons.error),
         duration: const Duration(seconds: 5),
         isDismissible: true,
       );
