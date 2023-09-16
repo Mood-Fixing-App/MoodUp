@@ -15,7 +15,7 @@ class _ConsultPageState extends State<ConsultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kDarkGreen,
+      backgroundColor: kGreen,
       body: SafeArea(
         child: Column(
           children: [
@@ -60,7 +60,7 @@ class _ConsultPageState extends State<ConsultPage> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: kLightGreen,
+                      color: kWhite,
                     ),
                     child: Row(
                       children: const [
@@ -68,7 +68,7 @@ class _ConsultPageState extends State<ConsultPage> {
                           padding: EdgeInsets.all(8.0),
                           child: Icon(
                             Icons.search,
-                            color: kWhite,
+                            color: kLightBlack,
                           ),
                         ),
                         Expanded(
@@ -76,7 +76,7 @@ class _ConsultPageState extends State<ConsultPage> {
                             decoration: InputDecoration(
                               hintText: 'Search',
                               hintStyle: TextStyle(
-                                color: kWhite,
+                                color: kLightBlack,
                               ),
                               border: InputBorder.none,
                             ),

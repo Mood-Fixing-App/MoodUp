@@ -14,7 +14,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: kLightGreen,
+        color: kGreen,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(

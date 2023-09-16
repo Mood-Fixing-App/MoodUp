@@ -18,7 +18,7 @@ class _MoodPageState extends State<MoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kDarkGreen,
+      backgroundColor: kWhite,
       body: SafeArea(
         child: FutureBuilder(
           future: controller.fetchUser(),
@@ -40,7 +40,7 @@ class _MoodPageState extends State<MoodPage> {
                             Text(
                               "Hi, ${controller.user.value.name!.split(' ')[0]}",
                               style: const TextStyle(
-                                color: kWhite,
+                                color: kBlack,
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -48,7 +48,6 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
 
-                        // Spacer to push icons to the right
                         const Spacer(),
 
                         // Notification Icon
@@ -70,24 +69,24 @@ class _MoodPageState extends State<MoodPage> {
                     ),
 
                     const SizedBox(
-                      height: 25,
+                      height: 50,
                     ),
 
                     //  how do you feel
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text(
                           'How do you feel?',
                           style: TextStyle(
-                            color: kWhite,
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
+                            color: kBlack,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         Icon(
                           Icons.more_horiz,
-                          color: kWhite,
+                          color: kBlack,
                         ),
                       ],
                     ),
@@ -98,13 +97,13 @@ class _MoodPageState extends State<MoodPage> {
 
                     // moods
 
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
+                    const Padding(
+                      padding: EdgeInsets.all(10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
-                            children: const [
+                            children: [
                               Emo(
                                 emo: '😕',
                               ),
@@ -113,12 +112,12 @@ class _MoodPageState extends State<MoodPage> {
                               ),
                               Text(
                                 'Bad',
-                                style: TextStyle(color: kWhite),
+                                style: TextStyle(color: kBlack),
                               ),
                             ],
                           ),
                           Column(
-                            children: const [
+                            children: [
                               Emo(
                                 emo: '😄',
                               ),
@@ -127,12 +126,12 @@ class _MoodPageState extends State<MoodPage> {
                               ),
                               Text(
                                 'Happy',
-                                style: TextStyle(color: kWhite),
+                                style: TextStyle(color: kBlack),
                               ),
                             ],
                           ),
                           Column(
-                            children: const [
+                            children: [
                               Emo(
                                 emo: '😃',
                               ),
@@ -141,12 +140,12 @@ class _MoodPageState extends State<MoodPage> {
                               ),
                               Text(
                                 'Fine',
-                                style: TextStyle(color: kWhite),
+                                style: TextStyle(color: kBlack),
                               ),
                             ],
                           ),
                           Column(
-                            children: const [
+                            children: [
                               Emo(
                                 emo: '😮',
                               ),
@@ -155,7 +154,7 @@ class _MoodPageState extends State<MoodPage> {
                               ),
                               Text(
                                 'Wonder',
-                                style: TextStyle(color: kWhite),
+                                style: TextStyle(color: kBlack),
                               ),
                             ],
                           ),
@@ -164,23 +163,23 @@ class _MoodPageState extends State<MoodPage> {
                     ),
 
                     const SizedBox(
-                      height: 25,
+                      height: 50,
                     ),
 
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text(
                           'Detect your mood',
                           style: TextStyle(
-                            color: kWhite,
-                            fontSize: 18,
-                            fontWeight: FontWeight.normal,
+                            color: kBlack,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         Icon(
                           Icons.more_horiz,
-                          color: kWhite,
+                          color: kBlack,
                         ),
                       ],
                     ),
@@ -192,20 +191,21 @@ class _MoodPageState extends State<MoodPage> {
                     // moods
 
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: kWhite,
+                              color: Color(0xff3d9970),
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            padding: const EdgeInsets.all(120),
+                            padding: const EdgeInsets.all(80),
                             child: const Center(
                               child: Icon(
                                 Icons.camera_alt_rounded,
-                                size: 60,
-                                color: kDarkGreen,
+                                size: 30,
+                                color: kWhite,
                               ),
                             ),
                           ),
