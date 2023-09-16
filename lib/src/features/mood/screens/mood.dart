@@ -73,9 +73,9 @@ class _MoodPageState extends State<MoodPage> {
                     ),
 
                     //  how do you feel
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           'How do you feel?',
                           style: TextStyle(
@@ -97,13 +97,13 @@ class _MoodPageState extends State<MoodPage> {
 
                     // moods
 
-                    const Padding(
-                      padding: EdgeInsets.all(10.0),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
-                            children: [
+                            children: const [
                               Emo(
                                 emo: '😕',
                               ),
@@ -117,7 +117,7 @@ class _MoodPageState extends State<MoodPage> {
                             ],
                           ),
                           Column(
-                            children: [
+                            children: const [
                               Emo(
                                 emo: '😄',
                               ),
@@ -131,7 +131,7 @@ class _MoodPageState extends State<MoodPage> {
                             ],
                           ),
                           Column(
-                            children: [
+                            children: const [
                               Emo(
                                 emo: '😃',
                               ),
@@ -145,7 +145,7 @@ class _MoodPageState extends State<MoodPage> {
                             ],
                           ),
                           Column(
-                            children: [
+                            children: const [
                               Emo(
                                 emo: '😮',
                               ),
@@ -166,9 +166,9 @@ class _MoodPageState extends State<MoodPage> {
                       height: 50,
                     ),
 
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           'Detect your mood',
                           style: TextStyle(
@@ -197,7 +197,7 @@ class _MoodPageState extends State<MoodPage> {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              color: Color(0xff3d9970),
+                              color: const Color(0xff3d9970),
                               borderRadius: BorderRadius.circular(12),
                             ),
                             padding: const EdgeInsets.all(80),
