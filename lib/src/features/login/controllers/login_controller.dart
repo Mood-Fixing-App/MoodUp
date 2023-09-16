@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:moodup/src/constants/http.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
 class LoginController extends GetxController {
@@ -22,13 +22,6 @@ class LoginController extends GetxController {
     emailController = TextEditingController();
     passwordController = TextEditingController();
   }
-
-  // @override
-  // void onClose() {
-  //   emailController.dispose();
-  //   passwordController.dispose();
-  //   super.onClose();
-  // }
 
   String? validateEmail(String value) {
     if (!GetUtils.isEmail(value)) {
@@ -67,8 +60,7 @@ class LoginController extends GetxController {
       "email": email,
       "password": password,
     };
-    Uri uri = Uri.parse(
-        'https://king-prawn-app-zrp6n.ondigitalocean.app/api/auth/login');
+    Uri uri = Uri.parse(kLoginUrl);
 
     var response = await http.post(
       uri,
@@ -86,26 +78,34 @@ class LoginController extends GetxController {
 
         Get.offAll(() => const DashboardScreen());
       } else {
-        Get.snackbar(
-          'Error',
-          jsonDecode(response.body)['message'],
-          duration: const Duration(seconds: 5),
-          icon: const Icon(Icons.error),
-          backgroundColor: kLightGreen,
-          isDismissible: true,
-        );
+        showCredentialError(response);
         isLoading.value = false;
       }
     } catch (e) {
-      Get.snackbar(
-        'Error',
-        'You have not registered yet',
-        backgroundColor: kLightGreen,
-        icon: const Icon(Icons.error),
-        duration: const Duration(seconds: 5),
-        isDismissible: true,
-      );
+      showNoAccountError();
       isLoading.value = false;
     }
+  }
+
+  void showNoAccountError() {
+    Get.snackbar(
+      'Error',
+      'You have not registered yet',
+      backgroundColor: kLightGreen,
+      icon: const Icon(Icons.error),
+      duration: const Duration(seconds: 5),
+      isDismissible: true,
+    );
+  }
+
+  void showCredentialError(http.Response response) {
+    Get.snackbar(
+      'Error',
+      jsonDecode(response.body)['message'],
+      duration: const Duration(seconds: 5),
+      icon: const Icon(Icons.error),
+      backgroundColor: kLightGreen,
+      isDismissible: true,
+    );
   }
 }

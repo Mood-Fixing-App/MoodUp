@@ -27,6 +27,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logos/1024.png"
+  background_color: "#41B243"
+  adptive_icon_background: "#41B243"
+  
+
 
 flutter:
   uses-material-design: true

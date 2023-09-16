@@ -30,7 +30,6 @@ class DashboardController extends GetxController {
 
   fetchUser() async {
     String email = await emailShared();
-    print(email);
     Uri url = Uri.parse(
         'https://king-prawn-app-zrp6n.ondigitalocean.app/api/user/$email');
     var response = await http.get(url);
