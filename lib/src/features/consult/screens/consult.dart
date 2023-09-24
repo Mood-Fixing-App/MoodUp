@@ -26,13 +26,9 @@ class _ConsultPageState extends State<ConsultPage> {
                 children: [
                   Row(
                     children: [
-                      const Text(
-                        'You are not alone!',
-                        style: TextStyle(
-                          color: kWhite,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      CircleAvatar(
+                        radius: 20,
+                        backgroundImage: AssetImage('assets/images/slide1.png'),
                       ),
 
                       // Spacer to push icons to the right
@@ -157,14 +153,27 @@ class _ConsultPageState extends State<ConsultPage> {
                             color: kWhite,
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: const ListTile(
-                            leading: CircleAvatar(
-                              radius: 25,
-                              // backgroundImage:
-                              //     AssetImage('lib/images/user1.png'),
-                            ),
-                            title: Text('Dr. Sanath Gunarathne'),
-                            subtitle: Text('Phsychologist'),
+                          child: Column(
+                            children: [
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage:
+                                      AssetImage('assets/images/slide1.png'),
+                                ),
+                                title: Text('Dr. Sanath Gunarathne'),
+                                subtitle: Text('Psychologist'),
+                              ),
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage:
+                                      AssetImage('assets/images/slide2.png'),
+                                ),
+                                title: Text('Dr. Sanath Gunarathne'),
+                                subtitle: Text('Psychologist'),
+                              ),
+                            ],
                           ),
                         ),
                       ],

@@ -29,12 +29,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Get.lazyPut(()=>LoginController(),tag: 'login',fenix: true);
-    Get.lazyPut(()=>RegisterController(),tag: 'register',fenix: true);
-    Get.lazyPut(()=>DashboardController(),tag: 'dashboard',fenix: true);
-    Get.lazyPut(()=>MoodController(),tag: 'mood',fenix: true);
-    Get.lazyPut(()=>OnboardController(),tag: 'onboard',fenix: true);
+    Get.lazyPut(() => LoginController(), tag: 'login', fenix: true);
+    Get.lazyPut(() => RegisterController(), tag: 'register', fenix: true);
+    Get.lazyPut(() => DashboardController(), tag: 'dashboard', fenix: true);
+    Get.lazyPut(() => MoodController(), tag: 'mood', fenix: true);
+    Get.lazyPut(() => OnboardController(), tag: 'onboard', fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
