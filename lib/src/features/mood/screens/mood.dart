@@ -66,156 +66,153 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
 
-                            const Spacer(),
+                        const Spacer(),
 
-                            // Notification Icon
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const NotificationsScreen(),
-                                  ),
-                                );
-                              },
-                              child: const MyButton(
-                                iconData: Icons.notifications,
+                        // Notification Icon
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const NotificationsScreen(),
                               ),
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(
-                          height: 50,
-                        ),
-
-                        //  how do you feel
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'How do you feel?',
-                              style: TextStyle(
-                                color: kWhite,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Icon(
-                              Icons.more_horiz,
-                              color: kWhite,
-                            ),
-                          ],
-                        ),
-
-                        const SizedBox(
-                          height: 25,
-                        ),
-
-                        // moods
-
-                        const Padding(
-                          padding: EdgeInsets.all(10.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                children: [
-                                  Emo(
-                                    emo: '😕',
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    'Bad',
-                                    style: TextStyle(color: kWhite),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Emo(
-                                    emo: '😄',
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    'Happy',
-                                    style: TextStyle(color: kWhite),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Emo(
-                                    emo: '😃',
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    'Fine',
-                                    style: TextStyle(color: kWhite),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Emo(
-                                    emo: '😮',
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                  Text(
-                                    'Wonder',
-                                    style: TextStyle(color: kWhite),
-                                  ),
-                                ],
-                              ),
-                            ],
+                            );
+                          },
+                          child: const MyButton(
+                            iconData: Icons.notifications,
                           ),
                         ),
                       ],
                     ),
-                  ),
 
-                  Expanded(
-                    child: Container(
-                      color: kWhite,
-                      child: Padding(
-                        padding: const EdgeInsets.all(25.0),
-                        child: Center(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: const [
-                                    Text(
-                                      'Exercises',
-                                      style: TextStyle(
-                                        color: kBlack,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
+                    const SizedBox(
+                      height: 50,
+                    ),
+
+                    //  how do you feel
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'How do you feel?',
+                          style: TextStyle(
+                            color: kWhite,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Icon(
+                          Icons.more_horiz,
+                          color: kWhite,
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(
+                      height: 25,
+                    ),
+
+                    // moods
+
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: const [
+                              Emo(
+                                emo: '😕',
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                'Bad',
+                                style: TextStyle(color: kWhite),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: const [
+                              Emo(
+                                emo: '😄',
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                'Happy',
+                                style: TextStyle(color: kWhite),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: const [
+                              Emo(
+                                emo: '😃',
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                'Fine',
+                                style: TextStyle(color: kWhite),
+                              ),
+                            ],
+                          ),
+                          Column(
+                            children: const [
+                              Emo(
+                                emo: '😮',
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                'Wonder',
+                                style: TextStyle(color: kWhite),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    Expanded(
+                      child: Container(
+                        color: kWhite,
+                        child: Padding(
+                          padding: const EdgeInsets.all(25.0),
+                          child: Center(
+                            child: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: const [
+                                      Text(
+                                        'Exercises',
+                                        style: TextStyle(
+                                          color: kBlack,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                    Icon(Icons.more_horiz),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Container(
-                                  child: GridView.builder(
+                                      Icon(Icons.more_horiz),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  GridView.builder(
                                     shrinkWrap: true,
-                                    physics: NeverScrollableScrollPhysics(),
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
                                     gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount:
                                           2, // You can adjust the number of columns as needed
                                       crossAxisSpacing: 16.0,
@@ -227,15 +224,15 @@ class _MoodPageState extends State<MoodPage> {
                                           exerciseName: exercises[index]);
                                     },
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               );
             }
           },

@@ -53,11 +53,9 @@ class ProfilePictureUploadScreen extends StatelessWidget {
               },
             ),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: controller.uploadedImage == null
-                      ? const AssetImage('assets/images/default_profile.png')
-                      : Image.memory(controller.uploadedImage!).image,
+                  image: AssetImage('assets/images/default_profile.png'),
                   fit: BoxFit.cover,
                 ),
                 shape: BoxShape.circle,
