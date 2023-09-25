@@ -18,6 +18,7 @@ class _MoodPageState extends State<MoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: showDrawer(controller.user.value.name!),
       backgroundColor: kWhite,
       body: SafeArea(
         child: FutureBuilder(
@@ -33,7 +34,15 @@ class _MoodPageState extends State<MoodPage> {
                     // greetings row
                     Row(
                       children: [
-                        // Hi, John!
+                        GestureDetector(
+                          onTap: () => Scaffold.of(context).openDrawer(),
+                          child: const Padding(
+                            padding: EdgeInsets.only(right: 10.0),
+                            child: CircleAvatar(
+                              radius: 20,
+                            ),
+                          ),
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -221,4 +230,50 @@ class _MoodPageState extends State<MoodPage> {
       ),
     );
   }
+}
+
+Widget showDrawer(String name) {
+  return Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: [
+        DrawerHeader(
+          decoration: const BoxDecoration(
+            color: kLightGreen,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Center(
+                child: CircleAvatar(
+                  radius: 40,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                    color: kBlack,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        ListTile(
+          title: const Text('Item 1'),
+          onTap: () {},
+        ),
+        ListTile(
+          title: const Text('Item 2'),
+          onTap: () {},
+        ),
+      ],
+    ),
+  );
 }

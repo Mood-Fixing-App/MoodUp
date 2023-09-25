@@ -2,12 +2,15 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moodup/src/utils/theme.dart';
+import 'package:moodup/src/features/mood/screens/mood.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
 import 'package:moodup/src/features/mood/controller/mood_controller.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
+import 'package:moodup/src/features/profile_picture_upload/screens/profile_pic_upload_screen.dart';
+import 'package:moodup/src/features/profile_picture_upload/controllers/profile_pic_upload_controller.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,17 +32,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Get.lazyPut(()=>LoginController(),tag: 'login',fenix: true);
-    Get.lazyPut(()=>RegisterController(),tag: 'register',fenix: true);
-    Get.lazyPut(()=>DashboardController(),tag: 'dashboard',fenix: true);
-    Get.lazyPut(()=>MoodController(),tag: 'mood',fenix: true);
-    Get.lazyPut(()=>OnboardController(),tag: 'onboard',fenix: true);
+    Get.lazyPut(() => LoginController(), tag: 'login', fenix: true);
+    Get.lazyPut(() => RegisterController(), tag: 'register', fenix: true);
+    Get.lazyPut(() => DashboardController(), tag: 'dashboard', fenix: true);
+    Get.lazyPut(() => MoodController(), tag: 'mood', fenix: true);
+    Get.lazyPut(() => OnboardController(), tag: 'onboard', fenix: true);
+    Get.lazyPut(() => ProfilePicUploadController(), tag: 'profilepic', fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
-      home: SplashScreen(),
+      home: ProfilePictureUploadScreen(),
     );
   }
 }
