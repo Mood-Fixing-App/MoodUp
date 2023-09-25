@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:moodup/src/features/mood/screens/mood.dart';
+import 'package:moodup/src/features/moodtrack/screens/moodtrack.dart';
 import 'package:moodup/src/features/post/screens/post.dart';
 import 'package:moodup/src/features/consult/screens/consult.dart';
 import 'package:moodup/src/features/settings/screens/setting_screen.dart';
@@ -28,6 +29,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: const [
             MoodPage(),
             ConsultPage(),
+            MoodTrackPage(),
             PostPage(),
             SettingScreen(),
           ],
@@ -49,19 +51,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
             tabs: const [
               GButton(
                 icon: Icons.mood,
-                text: 'Mood',
               ),
               GButton(
-                icon: Icons.chat,
-                text: 'Chat',
+                icon: Icons.chat_outlined,
               ),
               GButton(
-                icon: Icons.post_add,
-                text: 'Post',
+                icon: Icons.camera_alt_outlined,
+                iconSize: 48,
               ),
               GButton(
-                icon: Icons.settings,
-                text: 'Settings',
+                icon: Icons.post_add_outlined,
+              ),
+              GButton(
+                icon: Icons.settings_outlined,
               ),
             ],
           ),
