@@ -42,7 +42,7 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
-      home: ProfilePictureUploadScreen(),
+      home: SplashScreen(),
     );
   }
 }
