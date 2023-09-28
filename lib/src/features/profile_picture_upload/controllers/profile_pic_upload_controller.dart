@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
@@ -62,7 +61,9 @@ class ProfilePicUploadController extends GetxController {
 
     var response = await http.post(url, body: request);
     uploadedImage = response.body as File;
-    print(response.body);
+    if (kDebugMode) {
+      print(response.body);
+    }
     return response.body;
   }
 }

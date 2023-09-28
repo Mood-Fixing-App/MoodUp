@@ -4,7 +4,7 @@ import 'package:moodup/src/constants/colors.dart';
 class ExerciseTile extends StatelessWidget {
   final String exerciseName;
 
-  ExerciseTile({required this.exerciseName});
+  const ExerciseTile({super.key, required this.exerciseName});
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,10 @@ class ExerciseTile extends StatelessWidget {
                 height: 110.0,
                 fit: BoxFit.cover,
               ),
-            SizedBox(height: 8.0),
+            const SizedBox(height: 8.0),
             Text(
               exerciseName,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,

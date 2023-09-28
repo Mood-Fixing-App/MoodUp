@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
-import 'package:moodup/src/components/button.dart';
-import 'package:moodup/src/features/consult/screens/consultbox.dart';
-import 'package:moodup/src/features/notifications/notifications.dart';
+
 
 class ConsultPage extends StatefulWidget {
   const ConsultPage({Key? key}) : super(key: key);
@@ -35,7 +33,7 @@ class _ConsultPageState extends State<ConsultPage> {
   }
 
   Widget _buildImageColumns() {
-    return Container(
+    return SizedBox(
       width: 374,
       height: 939,
       child: ListView.builder(

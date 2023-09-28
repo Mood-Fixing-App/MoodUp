@@ -1,9 +1,6 @@
 import 'dart:io';
-import 'dart:convert';
-import 'dart:typed_data';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/features/profile_picture_upload/controllers/profile_pic_upload_controller.dart';
 
 class ProfilePictureUploadScreen extends StatelessWidget {

@@ -26,7 +26,7 @@ class _ConsultPageState extends State<ConsultPage> {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 20,
                         backgroundImage: AssetImage('assets/images/slide1.png'),
                       ),
@@ -154,7 +154,7 @@ class _ConsultPageState extends State<ConsultPage> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: Column(
-                            children: [
+                            children: const [
                               ListTile(
                                 leading: CircleAvatar(
                                   radius: 25,

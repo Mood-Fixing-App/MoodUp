@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../../constants/colors.dart';
 import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 
-import '../../../constants/colors.dart';
 
 class MoodTrackPage extends StatefulWidget {
   const MoodTrackPage({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 20,
                         backgroundImage: AssetImage('assets/images/slide1.png'),
                       ),
@@ -64,7 +64,7 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Let\'s find your mood',
                               style: TextStyle(
@@ -79,7 +79,7 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
 
@@ -96,7 +96,7 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                                 ),
                                 padding: const EdgeInsets.all(
                                     72), // Increase this value to make the container larger
-                                child: Center(
+                                child: const Center(
                                   child: Icon(
                                     Icons.camera_alt_rounded,
                                     size: 30,
