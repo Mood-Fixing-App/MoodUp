@@ -30,7 +30,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             MoodPage(),
             ConsultPage(),
             MoodTrackPage(),
-            PostPage(),
+            PostScreen(),
             SettingScreen(),
           ],
         ),

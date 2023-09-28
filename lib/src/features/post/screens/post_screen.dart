@@ -4,29 +4,22 @@ import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/features/post/screens/postcard.dart';
 import 'package:moodup/src/features/post/controllers/post_controller.dart';
 
-class PageScreen extends StatefulWidget {
-  const PageScreen({Key? key}) : super(key: key);
+class PostScreen extends StatefulWidget {
+  const PostScreen({Key? key}) : super(key: key);
 
   @override
-  State<PageScreen> createState() => _PostPageState();
+  State<PostScreen> createState() => _PostPageState();
 }
 
-class _PostPageState extends State<PageScreen> {
+class _PostPageState extends State<PostScreen> {
   PostController controller = Get.find<PostController>(tag: 'post');
-  
 
   TextEditingController postTextController = TextEditingController();
-
-
 
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () async{
-        setState(() {
-          controller.fetchPosts();
-        });
-      },
+      onRefresh: handlePullToRefresh,
       child: Scaffold(
         backgroundColor: kWhite,
         body: FutureBuilder(
@@ -68,9 +61,7 @@ class _PostPageState extends State<PageScreen> {
                                   suffixIcon: IconButton(
                                     focusColor: kGreen,
                                     icon: const Icon(Icons.send),
-                                    onPressed: () {
-                                      
-                                    },
+                                    onPressed: () {},
                                   ),
                                 ),
                               ),
@@ -90,10 +81,16 @@ class _PostPageState extends State<PageScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: PostCard(
                               index: index,
-                              authorName: controller.postList.posts?[index].author == null ? 'Null' : controller.postList.posts![index].author!,
-                              postText: controller.postList.posts![index].content!,
+                              authorName: controller
+                                          .postList.posts?[index].author ==
+                                      null
+                                  ? 'Null'
+                                  : controller.postList.posts![index].author!,
+                              postText:
+                                  controller.postList.posts![index].content!,
                               likes: controller.postList.posts![index].likes!,
-                              comments: controller.postList.posts![index].comments!,
+                              comments:
+                                  controller.postList.posts![index].comments!,
                             ),
                           );
                         },
@@ -108,5 +105,10 @@ class _PostPageState extends State<PageScreen> {
       ),
     );
   }
-}
 
+  Future<void> handlePullToRefresh() async {
+    setState(() {
+      controller.fetchPosts();
+    });
+  }
+}
