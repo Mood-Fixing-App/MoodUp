@@ -1,74 +1,87 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:moodup/src/features/post/controllers/post_controller.dart';
 
 class PostCard extends StatelessWidget {
-  final String avatarImage;
+  final String? avatarImage;
   final String authorName;
-  final String authorSubtitle;
+  final String? authorSubtitle;
   final String postText;
-  final String postImage;
-  final int likes;
-  final int comments;
+  final String? postImage;
+  final int? likes;
+  final int? comments;
+  final int index;
 
   const PostCard({
-    required this.avatarImage,
+    super.key,
+    required this.index,
+    this.avatarImage,
     required this.authorName,
-    required this.authorSubtitle,
+    this.authorSubtitle,
     required this.postText,
-    required this.postImage,
-    required this.likes,
-    required this.comments,
+    this.postImage,
+    this.likes,
+    this.comments,
   });
 
   @override
   Widget build(BuildContext context) {
+    PostController controller = Get.find<PostController>(tag: 'post');
+    var postList = controller.postList.posts;
     return Card(
       elevation: 2,
-      margin: EdgeInsets.symmetric(horizontal: 12.0),
+      margin: const EdgeInsets.symmetric(horizontal: 12.0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Column(
         children: [
           ListTile(
-            contentPadding: EdgeInsets.all(12.0),
-            leading: CircleAvatar(
+            contentPadding: const EdgeInsets.all(12.0),
+            leading: const CircleAvatar(
               radius: 21,
-              backgroundImage: AssetImage(avatarImage),
+              //backgroundImage: AssetImage(avatarImage!),
             ),
             title: Text(
               authorName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0,
               ),
             ),
-            subtitle: Text(
-              authorSubtitle,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 14.0,
-              ),
-            ),
+            // subtitle: Text(
+            //   authorSubtitle!,
+            //   style: const TextStyle(
+            //     color: Colors.grey,
+            //     fontSize: 14.0,
+            //   ),
+            // ),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Text(
-              postText,
-              style: TextStyle(
-                fontSize: 16.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  postText,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          if (postList![index].images != null)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              child: Image.asset(
+                postImage!,
+                width: double.infinity,
+                height: 200.0,
+                fit: BoxFit.cover,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Image.asset(
-              postImage,
-              width: double.infinity,
-              height: 200.0,
-              fit: BoxFit.cover,
-            ),
-          ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 5),
             child: Row(
@@ -76,7 +89,7 @@ class PostCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.favorite),
+                    const Icon(Icons.favorite),
                     Text(likes.toString()),
                   ],
                 ),

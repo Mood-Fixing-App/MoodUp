@@ -5,6 +5,7 @@ import 'package:moodup/src/utils/theme.dart';
 import 'package:moodup/src/features/mood/screens/mood.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
 import 'package:moodup/src/features/mood/controller/mood_controller.dart';
+import 'package:moodup/src/features/post/controllers/post_controller.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
@@ -38,6 +39,7 @@ class MainApp extends StatelessWidget {
     Get.lazyPut(() => MoodController(), tag: 'mood', fenix: true);
     Get.lazyPut(() => OnboardController(), tag: 'onboard', fenix: true);
     Get.lazyPut(() => ProfilePicUploadController(), tag: 'profilepic', fenix: true);
+    Get.lazyPut(() => PostController(), tag: 'post', fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

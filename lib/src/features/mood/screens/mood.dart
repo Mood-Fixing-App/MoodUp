@@ -27,7 +27,7 @@ class _MoodPageState extends State<MoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: showDrawer(controller.user.value.name!),
+      //drawer: showDrawer(controller.user.value.name!),
       backgroundColor: kWhite,
       body: SafeArea(
         child: FutureBuilder(
