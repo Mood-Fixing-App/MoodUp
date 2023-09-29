@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/features/settings/screens/setting%20navigations/help.dart';
 import 'package:moodup/src/features/settings/screens/setting%20navigations/privacy.dart';
 import 'package:moodup/src/features/settings/screens/setting%20navigations/language.dart';
-import 'package:moodup/src/features/settings/screens/setting%20navigations/newAccount.dart';
+import 'package:moodup/src/features/settings/screens/setting%20navigations/new_account.dart';
 // ignore: file_names
 
 

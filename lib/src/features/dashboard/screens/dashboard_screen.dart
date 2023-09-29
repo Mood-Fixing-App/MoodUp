@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:moodup/src/features/mood/screens/mood.dart';
-import 'package:moodup/src/features/post/screens/post.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/consult/screens/consult.dart';
-import 'package:moodup/src/features/settings/screens/settings_page.dart';
+import 'package:moodup/src/features/post/screens/post_screen.dart';
+import 'package:moodup/src/features/moodtrack/screens/moodtrack.dart';
 import 'package:moodup/src/features/settings/screens/setting_screen.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 
@@ -30,7 +29,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: const [
             MoodPage(),
             ConsultPage(),
-            PostPage(),
+            MoodTrackPage(),
+            PostScreen(),
             SettingScreen(),
           ],
         ),
@@ -38,11 +38,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12),
           child: GNav(
             backgroundColor: kWhite,
-            color: kDarkGreen,
-            activeColor: kDarkGreen,
+            color: kGreen,
+            activeColor: kGreen,
             tabActiveBorder: Border.all(
-              color: kDarkGreen, // Set the tab border color to kDarkGreen
-              width: 2.0, // Set the tab border width as needed
+              color: kGreen,
+              width: 2.0,
             ),
             gap: 8,
             onTabChange: (index) => controller.onTabChange(index),
@@ -51,19 +51,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
             tabs: const [
               GButton(
                 icon: Icons.mood,
-                text: 'Mood',
               ),
               GButton(
-                icon: Icons.chat,
-                text: 'Chat',
+                icon: Icons.chat_outlined,
               ),
               GButton(
-                icon: Icons.post_add,
-                text: 'Post',
+                icon: Icons.camera_alt_outlined,
+                iconSize: 48,
               ),
               GButton(
-                icon: Icons.settings,
-                text: 'Settings',
+                icon: Icons.post_add_outlined,
+              ),
+              GButton(
+                icon: Icons.settings_outlined,
               ),
             ],
           ),

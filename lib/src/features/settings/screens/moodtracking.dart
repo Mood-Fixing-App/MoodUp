@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 
 class MoodTrackingPage extends StatelessWidget {
+  const MoodTrackingPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

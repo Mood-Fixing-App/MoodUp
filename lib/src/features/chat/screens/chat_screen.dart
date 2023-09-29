@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+// ignore_for_file: depend_on_referenced_packages
+
+
+
+
 
 // For the testing purposes, you should probably use https://pub.dev/packages/uuid.
 String randomString() {

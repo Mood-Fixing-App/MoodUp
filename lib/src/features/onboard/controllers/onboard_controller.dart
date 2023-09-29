@@ -1,34 +1,43 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
+<<<<<<< HEAD
 class OnboardController extends GetxController {
   // Page Controller
   static PageController onboardpagecontroller =
       Get.put(PageController(), tag: 'onboardpagecontroller');
+=======
+class OnboardController extends GetxController{
+  PageController onboardpagecontroller = PageController(initialPage: 0);
+>>>>>>> 6302a9928f9a8dc83b3c45f8f344e9cba558f90f
 
   //Page Number
-  static RxInt pageNumber = 0.obs;
-  static void changePageNumber(int index) {
+  RxInt pageNumber = 0.obs;
+  void changePageNumber(int index) {
     pageNumber.value = index;
   }
 
   //Navigations
-  static void navigateToNextPage() {
+  void navigateToNextPage() {
     onboardpagecontroller.nextPage(
       duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
+      curve: Curves.linear,
     );
   }
 
   //Navigation to register page
+<<<<<<< HEAD
   static void navigateToLoginRegisterPage() {
     Get.to(() => const LoginOrRegisterScreen());
+=======
+  void navigateToLoginRegisterPage() {
+    Get.to(()=> const LoginOrRegisterScreen() );
+>>>>>>> 6302a9928f9a8dc83b3c45f8f344e9cba558f90f
   }
 
   //Navigatgion Controlling
-  static void setNavigation(int index) {
+  void setNavigation(int index) {
     if (index == 2) {
       navigateToLoginRegisterPage();
     } else {
@@ -37,7 +46,7 @@ class OnboardController extends GetxController {
   }
 
   //Button Text Changer
-  static String setButtonText(int index) {
+  String setButtonText(int index) {
     if (index == 2) {
       return 'Get Started';
     } else {
@@ -46,7 +55,7 @@ class OnboardController extends GetxController {
   }
 
   //Skip Button Visibility
-  static bool setSkipButtonVisibility(int index) {
+  bool setSkipButtonVisibility(int index) {
     if (index == 2) {
       return false;
     } else {
@@ -55,7 +64,7 @@ class OnboardController extends GetxController {
   }
 
   //Skip Button Functionality
-  static void skipButtonFunctionality() {
+  void skipButtonFunctionality() {
     onboardpagecontroller.jumpToPage(2);
   }
 }

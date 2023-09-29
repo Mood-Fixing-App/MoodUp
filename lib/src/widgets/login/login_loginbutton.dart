@@ -21,13 +21,21 @@ class LoginButton extends StatelessWidget {
                     Icons.login,
                     color: Color(0XFF031C03),
                   ),
-            label: const Text(
-              "Login",
-              style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0XFF031C03),
-                  fontWeight: FontWeight.bold),
-            ),
+            label: controller.isLoading.value
+                ? const Text(
+                    "Login User...",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Color(0XFF031C03),
+                        fontWeight: FontWeight.bold),
+                  )
+                : const Text(
+                    "Login",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Color(0XFF031C03),
+                        fontWeight: FontWeight.bold),
+                  ),
             onPressed: () async {
               controller.loginUser(
                 controller.emailController.text,

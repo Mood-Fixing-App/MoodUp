@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 
 class AboutHelpPage extends StatelessWidget {
+  const AboutHelpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

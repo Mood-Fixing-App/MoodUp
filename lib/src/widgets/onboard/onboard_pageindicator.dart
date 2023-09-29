@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -11,8 +12,9 @@ class PageIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<OnboardController>(tag: 'onboard');
     return SmoothPageIndicator(
-      controller: OnboardController.onboardpagecontroller,
+      controller: controller.onboardpagecontroller,
       count: 3,
       effect: const ScrollingDotsEffect(
         activeDotColor: kWhite,

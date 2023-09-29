@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:moodup/src/constants/http.dart';
+import 'package:moodup/src/constants/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 
 class LoginController extends GetxController {
@@ -14,20 +15,12 @@ class LoginController extends GetxController {
   var email = '';
   var password = '';
   var isLoading = false.obs;
-  var user = User().obs;
 
   @override
   void onInit() {
     super.onInit();
     emailController = TextEditingController();
     passwordController = TextEditingController();
-  }
-
-  @override
-  void onClose() {
-    emailController.dispose();
-    passwordController.dispose();
-    super.onClose();
   }
 
   String? validateEmail(String value) {
@@ -59,6 +52,7 @@ class LoginController extends GetxController {
   }
 
   Future loginUser(String email, String password) async {
+    isLoading.value = true;
     if (kDebugMode) {
       print(email + password);
     }
@@ -66,8 +60,7 @@ class LoginController extends GetxController {
       "email": email,
       "password": password,
     };
-    Uri uri = Uri.parse(
-        'https://king-prawn-app-zrp6n.ondigitalocean.app/api/auth/login');
+    Uri uri = Uri.parse(kLoginUrl);
 
     var response = await http.post(
       uri,
@@ -75,20 +68,44 @@ class LoginController extends GetxController {
       headers: {"Accept": "application/json"},
     );
 
-    if (response.statusCode == 200) {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString('email', email);
+    var data = jsonDecode(response.body);
 
-      Get.offAll(() => const DashboardScreen());
-    } else {
-      Get.snackbar(
-        'Error',
-        jsonDecode(response.body)['message'],
-        backgroundColor: Colors.red,
-        colorText: Colors.white,
-        duration: const Duration(seconds: 5),
-        isDismissible: true,
-      );
+    try {
+      if (data['status'] == 'success') {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('email', email);
+        isLoading.value = false;
+
+        Get.offAll(() => const DashboardScreen());
+      } else {
+        showCredentialError(response);
+        isLoading.value = false;
+      }
+    } catch (e) {
+      showNoAccountError();
+      isLoading.value = false;
     }
+  }
+
+  void showNoAccountError() {
+    Get.snackbar(
+      'Error',
+      'You have not registered yet',
+      backgroundColor: kLightGreen,
+      icon: const Icon(Icons.error),
+      duration: const Duration(seconds: 5),
+      isDismissible: true,
+    );
+  }
+
+  void showCredentialError(http.Response response) {
+    Get.snackbar(
+      'Error',
+      jsonDecode(response.body)['message'],
+      duration: const Duration(seconds: 5),
+      icon: const Icon(Icons.error),
+      backgroundColor: kLightGreen,
+      isDismissible: true,
+    );
   }
 }

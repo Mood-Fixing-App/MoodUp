@@ -15,7 +15,7 @@ class _ConsultPageState extends State<ConsultPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kDarkGreen,
+      backgroundColor: kGreen,
       body: SafeArea(
         child: Column(
           children: [
@@ -26,13 +26,9 @@ class _ConsultPageState extends State<ConsultPage> {
                 children: [
                   Row(
                     children: [
-                      const Text(
-                        'You are not alone!',
-                        style: TextStyle(
-                          color: kWhite,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      const CircleAvatar(
+                        radius: 20,
+                        backgroundImage: AssetImage('assets/images/slide1.png'),
                       ),
 
                       // Spacer to push icons to the right
@@ -60,7 +56,7 @@ class _ConsultPageState extends State<ConsultPage> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: kLightGreen,
+                      color: kWhite,
                     ),
                     child: Row(
                       children: const [
@@ -68,7 +64,7 @@ class _ConsultPageState extends State<ConsultPage> {
                           padding: EdgeInsets.all(8.0),
                           child: Icon(
                             Icons.search,
-                            color: kWhite,
+                            color: kLightBlack,
                           ),
                         ),
                         Expanded(
@@ -76,7 +72,7 @@ class _ConsultPageState extends State<ConsultPage> {
                             decoration: InputDecoration(
                               hintText: 'Search',
                               hintStyle: TextStyle(
-                                color: kWhite,
+                                color: kLightBlack,
                               ),
                               border: InputBorder.none,
                             ),
@@ -157,14 +153,27 @@ class _ConsultPageState extends State<ConsultPage> {
                             color: kWhite,
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: const ListTile(
-                            leading: CircleAvatar(
-                              radius: 25,
-                              // backgroundImage:
-                              //     AssetImage('lib/images/user1.png'),
-                            ),
-                            title: Text('Dr. Sanath Gunarathne'),
-                            subtitle: Text('Phsychologist'),
+                          child: Column(
+                            children: const [
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage:
+                                      AssetImage('assets/images/slide1.png'),
+                                ),
+                                title: Text('Dr. Sanath Gunarathne'),
+                                subtitle: Text('Psychologist'),
+                              ),
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage:
+                                      AssetImage('assets/images/slide2.png'),
+                                ),
+                                title: Text('Dr. Sanath Gunarathne'),
+                                subtitle: Text('Psychologist'),
+                              ),
+                            ],
                           ),
                         ),
                       ],

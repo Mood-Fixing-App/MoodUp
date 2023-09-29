@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
+import 'package:moodup/src/constants/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/register/models/user.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
@@ -82,8 +83,7 @@ class RegisterController extends GetxController {
       'password': password,
       // 'reenterpassword': reenterpassword,
     };
-    final uri = Uri.parse(
-        'https://king-prawn-app-zrp6n.ondigitalocean.app/api/auth/register');
+    final uri = Uri.parse(kRegisterUrl);
 
     var response = await http.post(uri, body: request);
 

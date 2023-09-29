@@ -45,7 +45,7 @@ class SettingsPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        AccountPage()), // Navigate to AccountPage
+                        const AccountPage()), // Navigate to AccountPage
               );
             },
           ),
@@ -75,7 +75,7 @@ class SettingsPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        MoodTrackingPage()), // Navigate to AccountPage
+                        const MoodTrackingPage()), // Navigate to AccountPage
               );
             },
           ),
@@ -91,7 +91,7 @@ class SettingsPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        LanguagePage()), // Navigate to AccountPage
+                        const LanguagePage()), // Navigate to AccountPage
               );
             },
           ),
@@ -132,7 +132,7 @@ class SettingsPage extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        AboutHelpPage()), // Navigate to AccountPage
+                        const AboutHelpPage()), // Navigate to AccountPage
               );
             },
           ),

@@ -4,7 +4,7 @@ import 'package:moodup/src/constants/colors.dart';
 class ConsultContainer extends StatelessWidget {
   final String title;
 
-  const ConsultContainer({required this.title});
+  const ConsultContainer({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class ConsultContainer extends StatelessWidget {
       margin: const EdgeInsets.only(right: 10.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: kDarkGreen,
+        color: kGreen,
       ),
       child: Center(
         child: Text(
