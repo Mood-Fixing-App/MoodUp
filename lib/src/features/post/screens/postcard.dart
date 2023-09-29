@@ -60,6 +60,41 @@ class PostCard extends StatelessWidget {
             trailing: PopupMenuButton<String>(
               onSelected: (value) {
                 if (value == 'edit') {
+                  // Show Edit Dialog
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Edit Post'),
+                        content: Column(
+                          children: [
+                            TextField(
+                              decoration:
+                                  InputDecoration(labelText: 'New Post Text'),
+                            ),
+                          ],
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text('Cancel'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                          TextButton(
+                            child: Text('Save'),
+                            onPressed: () {
+                              // Save the edited post logic here
+                              // For example:
+                              // String newPostText = _controller.text;
+                              // Perform save action and update the post
+                              Navigator.of(context).pop(); // Close the dialog
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 } else if (value == 'delete') {}
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[

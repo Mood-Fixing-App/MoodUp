@@ -4,7 +4,6 @@ import 'package:moodup/src/constants/colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
 
-
 class PageIndicator extends StatelessWidget {
   const PageIndicator({
     super.key,
