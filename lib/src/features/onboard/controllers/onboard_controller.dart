@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
-class OnboardController extends GetxController{
+class OnboardController extends GetxController {
   // Page Controller
-  static PageController onboardpagecontroller = Get.put(PageController(),tag: 'onboardpagecontroller');
+  static PageController onboardpagecontroller =
+      Get.put(PageController(), tag: 'onboardpagecontroller');
 
   //Page Number
   static RxInt pageNumber = 0.obs;
@@ -23,9 +24,8 @@ class OnboardController extends GetxController{
 
   //Navigation to register page
   static void navigateToLoginRegisterPage() {
-    Get.to(()=> const LoginOrRegisterScreen() );
+    Get.to(() => const LoginOrRegisterScreen());
   }
-
 
   //Navigatgion Controlling
   static void setNavigation(int index) {
@@ -58,6 +58,4 @@ class OnboardController extends GetxController{
   static void skipButtonFunctionality() {
     onboardpagecontroller.jumpToPage(2);
   }
-
-  
 }

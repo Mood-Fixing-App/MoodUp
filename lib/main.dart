@@ -2,17 +2,10 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moodup/src/utils/theme.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:moodup/src/features/chat/screens/chat_screen.dart';
-import 'package:moodup/src/features/login/screens/login_screen.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
-import 'package:moodup/src/features/register/screens/register_screen.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
-import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
-import 'package:moodup/src/features/forgot_password/screens/forgot_password_screen.dart';
-import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,10 +27,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Get.lazyPut(()=>LoginController(),tag: 'login',fenix: true);
-    Get.lazyPut(()=>RegisterController(),tag: 'register',fenix: true);
-    Get.lazyPut(()=>DashboardController(),tag: 'dashboard',fenix: true);
+    Get.lazyPut(() => LoginController(), tag: 'login', fenix: true);
+    Get.lazyPut(() => RegisterController(), tag: 'register', fenix: true);
+    Get.lazyPut(() => DashboardController(), tag: 'dashboard', fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
