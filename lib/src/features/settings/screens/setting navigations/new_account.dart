@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/login/screens/login_screen.dart';
+import 'package:moodup/src/features/settings/screens/setting%20navigations/account/edit_profile.dart';
 // ignore: file_names
 
 class Setting {
@@ -129,7 +130,7 @@ class NextScreen extends StatelessWidget {
     // Render the appropriate screen based on the index
     switch (index) {
       case 0:
-        return const ProfileScreen();
+        return const EditProfileScreen();
       case 1:
         return const SecurityScreen();
       case 2:
