@@ -2,8 +2,15 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/features/login_or_register/screens/login_or_register_screen.dart';
 
+<<<<<<< HEAD
+class OnboardController extends GetxController {
+  // Page Controller
+  static PageController onboardpagecontroller =
+      Get.put(PageController(), tag: 'onboardpagecontroller');
+=======
 class OnboardController extends GetxController{
   PageController onboardpagecontroller = PageController(initialPage: 0);
+>>>>>>> 6302a9928f9a8dc83b3c45f8f344e9cba558f90f
 
   //Page Number
   RxInt pageNumber = 0.obs;
@@ -20,10 +27,14 @@ class OnboardController extends GetxController{
   }
 
   //Navigation to register page
+<<<<<<< HEAD
+  static void navigateToLoginRegisterPage() {
+    Get.to(() => const LoginOrRegisterScreen());
+=======
   void navigateToLoginRegisterPage() {
     Get.to(()=> const LoginOrRegisterScreen() );
+>>>>>>> 6302a9928f9a8dc83b3c45f8f344e9cba558f90f
   }
-
 
   //Navigatgion Controlling
   void setNavigation(int index) {
@@ -56,6 +67,4 @@ class OnboardController extends GetxController{
   void skipButtonFunctionality() {
     onboardpagecontroller.jumpToPage(2);
   }
-
-  
 }
