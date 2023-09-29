@@ -1,6 +1,6 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/features/post/controllers/post_controller.dart';
+import 'package:get/get.dart';
 
 class PostCard extends StatelessWidget {
   final String? avatarImage;
@@ -13,7 +13,7 @@ class PostCard extends StatelessWidget {
   final int index;
 
   const PostCard({
-    super.key,
+    Key? key,
     required this.index,
     this.avatarImage,
     required this.authorName,
@@ -22,12 +22,13 @@ class PostCard extends StatelessWidget {
     this.postImage,
     this.likes,
     this.comments,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     PostController controller = Get.find<PostController>(tag: 'post');
     var postList = controller.postList.posts;
+
     return Card(
       elevation: 2,
       margin: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -56,6 +57,28 @@ class PostCard extends StatelessWidget {
             //     fontSize: 14.0,
             //   ),
             // ),
+            trailing: PopupMenuButton<String>(
+              onSelected: (value) {
+                if (value == 'edit') {
+                } else if (value == 'delete') {}
+              },
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: 'edit',
+                  child: ListTile(
+                    leading: Icon(Icons.edit),
+                    title: Text('Edit'),
+                  ),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'delete',
+                  child: ListTile(
+                    leading: Icon(Icons.delete),
+                    title: Text('Delete'),
+                  ),
+                ),
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),

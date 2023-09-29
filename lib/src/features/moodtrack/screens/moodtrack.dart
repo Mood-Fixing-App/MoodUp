@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../constants/colors.dart';
-import 'package:moodup/src/components/button.dart';
+import 'package:moodup/src/features/moodtrack/screens/camera.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
+import '../../../constants/colors.dart';
 
-
-class MoodTrackPage extends StatefulWidget {
-  const MoodTrackPage({Key? key}) : super(key: key);
-
-  @override
-  State<MoodTrackPage> createState() => _MoodTrackPageState();
-}
-
-class _MoodTrackPageState extends State<MoodTrackPage> {
+class MoodTrackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,22 +11,17 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
       body: SafeArea(
         child: Column(
           children: [
-            // greetings row
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         radius: 20,
                         backgroundImage: AssetImage('assets/images/slide1.png'),
                       ),
-
-                      // Spacer to push icons to the right
                       const Spacer(),
-
-                      // Notification Icon
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -44,8 +31,9 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                             ),
                           );
                         },
-                        child: const MyButton(
-                          iconData: Icons.notifications,
+                        child: Icon(
+                          Icons.notifications,
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -53,7 +41,6 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                 ],
               ),
             ),
-
             Expanded(
               child: Container(
                 color: kWhite,
@@ -64,7 +51,7 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             Text(
                               'Let\'s find your mood',
                               style: TextStyle(
@@ -79,28 +66,35 @@ class _MoodTrackPageState extends State<MoodTrackPage> {
                             ),
                           ],
                         ),
-                        const SizedBox(
+                        SizedBox(
                           height: 10,
                         ),
-
-                        // Moods
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: kGreen,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                padding: const EdgeInsets.all(
-                                    72), // Increase this value to make the container larger
-                                child: const Center(
-                                  child: Icon(
-                                    Icons.camera_alt_rounded,
-                                    size: 30,
-                                    color: kWhite,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => CameraScreen(),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: kGreen,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  padding: const EdgeInsets.all(72),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.camera_alt_rounded,
+                                      size: 30,
+                                      color: kWhite,
+                                    ),
                                   ),
                                 ),
                               ),
