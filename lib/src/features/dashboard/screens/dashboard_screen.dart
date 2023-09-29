@@ -26,12 +26,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
       () => Scaffold(
         body: PageView(
           controller: controller.pageController,
-          children: [
-            const MoodPage(),
-            const ConsultPage(),
+          children: const [
+            MoodPage(),
+            ConsultPage(),
             MoodTrackPage(),
-            const PostScreen(),
-            const SettingScreen(),
+            PostScreen(),
+            SettingScreen(),
           ],
         ),
         bottomNavigationBar: Padding(

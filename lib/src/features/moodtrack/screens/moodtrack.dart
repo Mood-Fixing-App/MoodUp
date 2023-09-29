@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import '../../../constants/colors.dart';
 import 'package:moodup/src/features/moodtrack/screens/camera.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
-import '../../../constants/colors.dart';
 
 class MoodTrackPage extends StatelessWidget {
+  const MoodTrackPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,7 @@ class MoodTrackPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 20,
                         backgroundImage: AssetImage('assets/images/slide1.png'),
                       ),
@@ -31,7 +33,7 @@ class MoodTrackPage extends StatelessWidget {
                             ),
                           );
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.notifications,
                           color: Colors.white,
                         ),
@@ -51,7 +53,7 @@ class MoodTrackPage extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
+                          children: const [
                             Text(
                               'Let\'s find your mood',
                               style: TextStyle(
@@ -66,7 +68,7 @@ class MoodTrackPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Padding(
@@ -79,7 +81,7 @@ class MoodTrackPage extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => CameraScreen(),
+                                      builder: (context) => const CameraScreen(),
                                     ),
                                   );
                                 },
@@ -89,7 +91,7 @@ class MoodTrackPage extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(12),
                                   ),
                                   padding: const EdgeInsets.all(72),
-                                  child: Center(
+                                  child: const Center(
                                     child: Icon(
                                       Icons.camera_alt_rounded,
                                       size: 30,

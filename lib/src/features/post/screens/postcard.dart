@@ -1,6 +1,6 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/features/post/controllers/post_controller.dart';
-import 'package:get/get.dart';
 
 class PostCard extends StatelessWidget {
   final String? avatarImage;
@@ -65,9 +65,9 @@ class PostCard extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Edit Post'),
+                        title: const Text('Edit Post'),
                         content: Column(
-                          children: [
+                          children: const [
                             TextField(
                               decoration:
                                   InputDecoration(labelText: 'New Post Text'),
@@ -76,13 +76,13 @@ class PostCard extends StatelessWidget {
                         ),
                         actions: <Widget>[
                           TextButton(
-                            child: Text('Cancel'),
+                            child: const Text('Cancel'),
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
                           ),
                           TextButton(
-                            child: Text('Save'),
+                            child: const Text('Save'),
                             onPressed: () {
                               // Save the edited post logic here
                               // For example:

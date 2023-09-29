@@ -204,22 +204,20 @@ class _MoodPageState extends State<MoodPage> {
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  Container(
-                                    child: SingleChildScrollView(
-                                      child: GridView.builder(
-                                        shrinkWrap: true,
-                                        gridDelegate:
-                                            SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          crossAxisSpacing: 10.0,
-                                          mainAxisSpacing: 10.0,
-                                        ),
-                                        itemCount: exercises.length,
-                                        itemBuilder: (context, index) {
-                                          return ExerciseTile(
-                                              exerciseName: exercises[index]);
-                                        },
+                                  SingleChildScrollView(
+                                    child: GridView.builder(
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing: 10.0,
+                                        mainAxisSpacing: 10.0,
                                       ),
+                                      itemCount: exercises.length,
+                                      itemBuilder: (context, index) {
+                                        return ExerciseTile(
+                                            exerciseName: exercises[index]);
+                                      },
                                     ),
                                   ),
                                 ],
