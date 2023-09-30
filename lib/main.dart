@@ -2,21 +2,19 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moodup/src/utils/theme.dart';
+import 'package:moodup/src/servivces/api_services.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
-<<<<<<< HEAD
-import 'package:moodup/src/features/login/controllers/login_controller.dart';
-import 'package:moodup/src/features/register/controllers/register_controller.dart';
-import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
-=======
 import 'package:moodup/src/features/mood/controller/mood_controller.dart';
 import 'package:moodup/src/features/post/controllers/post_controller.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
+import 'package:moodup/src/features/settings/controllers/setting_controller.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:moodup/src/features/profile_picture_upload/controllers/profile_pic_upload_controller.dart';
 
->>>>>>> 6302a9928f9a8dc83b3c45f8f344e9cba558f90f
+
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,13 +39,13 @@ class MainApp extends StatelessWidget {
     Get.lazyPut(() => LoginController(), tag: 'login', fenix: true);
     Get.lazyPut(() => RegisterController(), tag: 'register', fenix: true);
     Get.lazyPut(() => DashboardController(), tag: 'dashboard', fenix: true);
-<<<<<<< HEAD
-=======
     Get.lazyPut(() => MoodController(), tag: 'mood', fenix: true);
     Get.lazyPut(() => OnboardController(), tag: 'onboard', fenix: true);
-    Get.lazyPut(() => ProfilePicUploadController(), tag: 'profilepic', fenix: true);
+    Get.lazyPut(() => ProfilePicUploadController(),
+        tag: 'profilepic', fenix: true);
     Get.lazyPut(() => PostController(), tag: 'post', fenix: true);
->>>>>>> 6302a9928f9a8dc83b3c45f8f344e9cba558f90f
+    Get.lazyPut(() => APIServices(), tag: 'api', fenix: true);
+    Get.lazyPut(() => SettingController(), tag: 'setting', fenix: true);
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

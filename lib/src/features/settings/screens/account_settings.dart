@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/features/settings/screens/setting%20navigations/account/edit_profile.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -46,6 +48,7 @@ class AccountPage extends StatelessWidget {
                 title: const Text('Edit Profile'),
                 onTap: () {
                   // Navigate to the edit profile screen
+                  Get.to(()=>const EditProfileScreen());
                 },
               ),
               const Divider(),
