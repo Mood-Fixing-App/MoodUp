@@ -72,52 +72,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
               ),
             ),
-<<<<<<< HEAD
-            const SizedBox(height: 16.0),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Full Name'),
-              controller: TextEditingController(text: fullName),
-              onChanged: (value) {
-                fullName = value;
-              },
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Email'),
-              controller: TextEditingController(text: email),
-              onChanged: (value) {
-                email = value;
-              },
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Date of Birth'),
-              controller: dobController,
-              readOnly:
-                  true, // Set the text field as read-only to prevent manual input
-              onTap: () {
-                _selectDate(
-                    context); // Call the function to show the date picker
-              },
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Bio'),
-              controller: TextEditingController(text: bio),
-              onChanged: (value) {
-                bio = value;
-              },
-              maxLines: null,
-            ),
-            const SizedBox(height: 24.0),
-            ElevatedButton(
-              onPressed: () {
-                // Add logic to save changes to the database
-                // You can use the updated values of fullName, email, dob, and bio here
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green, // Set the button color to green
-=======
             body: SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -177,7 +131,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     child: const Text('Save Profile'),
                   ),
                 ],
->>>>>>> 1e1429e98bf1def0ca5d050e9b96783986fc417c
               ),
             ),
           );
