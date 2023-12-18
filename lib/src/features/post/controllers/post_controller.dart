@@ -8,6 +8,8 @@ class PostController extends GetxController {
   RxInt postsCount = 0.obs;
   PostListModel postList = PostListModel();
 
+  get user => null;
+
   //Fetch posts from API and store them in postList
   Future fetchPosts() async {
     Uri url = Uri.parse(kAllPostsUrl);

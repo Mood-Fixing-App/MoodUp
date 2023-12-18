@@ -1,5 +1,8 @@
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+import 'package:moodup/src/constants/http.dart';
 import 'package:moodup/src/servivces/api_services.dart';
 import 'package:moodup/src/features/settings/models/user_model.dart';
 
@@ -33,6 +36,26 @@ class SettingController extends GetxController {
           Get.back();
         },
       );
+    }
+  }
+
+  Future<Uint8List?> fetchUserImage(String email) async {
+    Uri url = Uri.parse(kLoggedInUserImageUrl);
+    var response = await http.post(url, body: {"email": email});
+
+    if (response.statusCode == 200) {
+      // Check if the response body is not empty
+      if (response.body.isNotEmpty) {
+        // Decode the base64-encoded image data to a Uint8List
+        Uint8List bytes = response.bodyBytes;
+        return bytes;
+      } else {
+        print("error");
+        return null;
+      }
+    } else {
+      print("error");
+      return null;
     }
   }
 }

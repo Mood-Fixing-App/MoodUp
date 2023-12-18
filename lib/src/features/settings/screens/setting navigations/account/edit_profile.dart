@@ -64,6 +64,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           return Scaffold(
             backgroundColor: const Color.fromARGB(255, 212, 243, 216),
             appBar: AppBar(
+              
               iconTheme: const IconThemeData(color: Colors.black),
               backgroundColor:
                   const Color.fromARGB(255, 255, 255, 255).withOpacity(0.2),
@@ -82,9 +83,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     onTap: () {
                       Get.to(const ProfilePictureUploadScreen());
                     },
-                    child: const CircleAvatar(
-                      radius: 60,
-                      //backgroundImage: AssetImage('assets/default_profile.png'),
+                    child: FutureBuilder(
+                      future: controller.fetchUserImage(email),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return CircleAvatar(
+                            radius: 60,
+                            backgroundImage: snapshot.hasData
+                                ? Image.memory(snapshot.data!).image
+                                : null,
+                          );
+                        } else {
+                          return const CircleAvatar(
+                            radius: 60,
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                      },
                     ),
                   ),
                   const SizedBox(height: 16.0),

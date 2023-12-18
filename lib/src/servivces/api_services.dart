@@ -34,7 +34,7 @@ class APIServices extends GetxController {
   //Update a particular user
   Future updateAnUser({String? name, String? bio}) async {
     Uri url = Uri.parse(
-        "http://192.168.8.117/api/user/profile/update");
+        kUpdateUserUrl);
 
     String email = await showLoggedinUserEmail();
     name ??= '';

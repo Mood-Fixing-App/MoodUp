@@ -1,13 +1,17 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 import 'package:moodup/src/features/moodtrack/screens/camera.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
+import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 
 class MoodTrackPage extends StatelessWidget {
   const MoodTrackPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    DashboardController controller =
+        Get.find<DashboardController>(tag: 'dashboard');
     return Scaffold(
       backgroundColor: kGreen,
       body: SafeArea(
@@ -19,9 +23,24 @@ class MoodTrackPage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const CircleAvatar(
-                        radius: 20,
-                        backgroundImage: AssetImage('assets/images/slide1.png'),
+                      FutureBuilder(
+                        future: controller
+                            .fetchUserImage(controller.user.value.email!),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return CircleAvatar(
+                              radius: 20,
+                              backgroundImage: snapshot.data != null
+                                  ? Image.memory(snapshot.data!).image
+                                  : null,
+                            );
+                          } else {
+                            return const CircleAvatar(
+                              radius: 20,
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        },
                       ),
                       const Spacer(),
                       GestureDetector(

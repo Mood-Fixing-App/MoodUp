@@ -7,7 +7,6 @@ import 'package:moodup/src/features/mood/screens/emotion.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 
-
 class MoodPage extends StatefulWidget {
   const MoodPage({Key? key}) : super(key: key);
 
@@ -16,15 +15,6 @@ class MoodPage extends StatefulWidget {
 }
 
 class _MoodPageState extends State<MoodPage> {
-  final List<String> exercises = [
-    'Exercise 1',
-    'Exercise 2',
-    'Exercise 3',
-    'Exercise 4',
-    'Exercise 5',
-    'Exercise 6',
-  ];
-
   final controller = Get.find<DashboardController>(tag: 'dashboard');
   @override
   Widget build(BuildContext context) {
@@ -47,10 +37,27 @@ class _MoodPageState extends State<MoodPage> {
                       children: [
                         GestureDetector(
                           onTap: () => Scaffold.of(context).openDrawer(),
-                          child:  const Padding(
-                            padding: EdgeInsets.only(right: 10.0),
-                            child: CircleAvatar(
-                              radius: 20,
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 10.0),
+                            child: FutureBuilder(
+                              future: controller
+                                  .fetchUserImage(controller.user.value.email!),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData) {
+                                  return CircleAvatar(
+                                    radius: 20,
+                                    backgroundImage: snapshot.data != null
+                                        ? Image.memory(snapshot.data!).image
+                                        : null,
+                                  );
+                                }
+                                else{
+                                  return const CircleAvatar(
+                                    radius: 20,
+                                    child: CircularProgressIndicator(),
+                                  );
+                                }
+                              },
                             ),
                           ),
                         ),
@@ -223,7 +230,8 @@ class _MoodPageState extends State<MoodPage> {
                                           itemCount: sp.data.length,
                                           itemBuilder: (context, index) =>
                                               Padding(
-                                            padding: const EdgeInsets.symmetric(vertical: 16),
+                                            padding: const EdgeInsets.symmetric(
+                                                vertical: 16),
                                             child: ListTile(
                                               leading: CircleAvatar(
                                                 radius: 25,

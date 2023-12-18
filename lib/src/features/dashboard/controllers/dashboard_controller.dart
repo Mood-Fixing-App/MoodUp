@@ -67,7 +67,7 @@ class DashboardController extends GetxController {
     // Check if the response body is not empty
     if (response.body.isNotEmpty) {
       // Decode the base64-encoded image data to a Uint8List
-      Uint8List bytes = base64Decode(response.body);
+      Uint8List bytes = response.bodyBytes;
       return bytes;
     } else {
       // Handle the case where the response body is empty

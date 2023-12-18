@@ -1,8 +1,10 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/features/consult/screens/consultbox.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
+import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 
 class ConsultPage extends StatefulWidget {
   const ConsultPage({super.key});
@@ -12,6 +14,8 @@ class ConsultPage extends StatefulWidget {
 }
 
 class _ConsultPageState extends State<ConsultPage> {
+  DashboardController controller =
+      Get.find<DashboardController>(tag: 'dashboard');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +30,24 @@ class _ConsultPageState extends State<ConsultPage> {
                 children: [
                   Row(
                     children: [
-                      const CircleAvatar(
-                        radius: 20,
-                        backgroundImage: AssetImage('assets/images/slide1.png'),
+                      FutureBuilder(
+                        future: controller
+                            .fetchUserImage(controller.user.value.email!),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return CircleAvatar(
+                              radius: 20,
+                              backgroundImage: snapshot.data != null
+                                  ? Image.memory(snapshot.data!).image
+                                  : null,
+                            );
+                          } else {
+                            return const CircleAvatar(
+                              radius: 20,
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        },
                       ),
 
                       // Spacer to push icons to the right

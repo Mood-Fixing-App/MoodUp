@@ -39,11 +39,6 @@ class _PostPageState extends State<PostScreen> {
                   children: [
                     Row(
                       children: [
-                        const CircleAvatar(
-                          radius: 20,
-                          backgroundImage:
-                              AssetImage('assets/images/slide1.png'),
-                        ),
                         const SizedBox(width: 10),
                         FutureBuilder(
                           future: dcontroller.emailShared(),
