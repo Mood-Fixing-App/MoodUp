@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodup/src/features/moodtrack/screens/moodtrack_2.dart';
 import '../../../constants/colors.dart';
 import 'package:moodup/src/features/moodtrack/screens/camera.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
@@ -82,7 +83,7 @@ class MoodTrackPage extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          const CameraScreen(),
+                                          const EmotionRecognitionScreen(),
                                     ),
                                   );
                                 },
