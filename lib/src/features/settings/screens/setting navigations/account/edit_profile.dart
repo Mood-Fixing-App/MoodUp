@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/features/settings/controllers/setting_controller.dart';
+import 'package:moodup/src/features/profile_picture_upload/screens/profile_pic_upload_screen.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -79,7 +80,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {
-                      // Add logic to change the profile picture
+                      Get.to(const ProfilePictureUploadScreen());
                     },
                     child: const CircleAvatar(
                       radius: 60,
@@ -121,7 +122,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   const SizedBox(height: 24.0),
                   ElevatedButton(
                     onPressed: () async {
-                   await controller.updateUserData(
+                      await controller.updateUserData(
                           name: fullName, dob: DateTime.now(), bio: bio);
                     },
                     style: ElevatedButton.styleFrom(

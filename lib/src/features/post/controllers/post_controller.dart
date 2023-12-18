@@ -10,9 +10,7 @@ class PostController extends GetxController {
 
   //Fetch posts from API and store them in postList
   Future fetchPosts() async {
-    Uri url =
-        Uri.parse(kAllPostsUrl);
-
+    Uri url = Uri.parse(kAllPostsUrl);
     var response = await http.get(url);
     var responseJson = jsonDecode(response.body);
     if (jsonDecode(response.body)['status'] == 'success') {
@@ -20,5 +18,12 @@ class PostController extends GetxController {
       postList = PostListModel.fromJson(responseJson);
       return postList;
     }
+  }
+
+  //Add a new post to the API
+  Future addPost(String postText, String email) async {
+    Uri url = Uri.parse(kAddPostUrl);
+    await http.post(url, body: {"email": email, "content": postText});
+    fetchPosts();
   }
 }

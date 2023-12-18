@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:moodup/src/constants/colors.dart';
+import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:moodup/src/features/profile_picture_upload/controllers/profile_pic_upload_controller.dart';
 
 class ProfilePictureUploadScreen extends StatelessWidget {
@@ -9,7 +11,13 @@ class ProfilePictureUploadScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<ProfilePicUploadController>(tag: 'profilepic');
+    final dcontroller = Get.find<DashboardController>(tag: 'dashboard');
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile Picture Upload',
+            style: TextStyle(color: kWhite, fontWeight: FontWeight.bold)),
+        backgroundColor: kLightGreen,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -31,34 +39,37 @@ class ProfilePictureUploadScreen extends StatelessWidget {
                 width: 200,
               ),
             ),
+            const SizedBox(
+              height: 60,
+            ),
             TextButton(
-              child: const Text('Pick a Profile Picture'),
+              style: TextButton.styleFrom(
+                backgroundColor: kLightGreen,
+              ),
+              child: const Text(
+                'Pick a Profile Picture',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
               onPressed: () {
                 controller.pickImage();
               },
             ),
-            TextButton(
-              child: const Text('Upload Profile Picture'),
-              onPressed: () {
-                controller.uploadImage();
-              },
+            const SizedBox(
+              height: 20,
             ),
             TextButton(
-              child: const Text('Show Picture'),
-              onPressed: () {
-                controller.fetchUserImage();
-              },
-            ),
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/default_profile.png'),
-                  fit: BoxFit.cover,
-                ),
-                shape: BoxShape.circle,
+              style: TextButton.styleFrom(
+                backgroundColor: kLightGreen,
               ),
-              height: 200,
-              width: 200,
+              child: const Text(
+                'Upload Profile Picture',
+                style:
+                    TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+              onPressed: () {
+                controller.uploadImage(dcontroller.user.value.email!);
+              },
             ),
           ],
         ),

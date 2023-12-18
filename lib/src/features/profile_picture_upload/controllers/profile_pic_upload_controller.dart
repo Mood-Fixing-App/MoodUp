@@ -21,13 +21,13 @@ class ProfilePicUploadController extends GetxController {
     }
   }
 
-  void uploadImage() async {
+  void uploadImage(String email) async {
     var request = http.MultipartRequest(
       'POST',
       Uri.parse(
           kUploadImageUrl),
     );
-    request.fields['email'] = 'hashand379@gmail.com';
+    request.fields['email'] = email;
     request.files.add(
       await http.MultipartFile.fromPath(
         'image',

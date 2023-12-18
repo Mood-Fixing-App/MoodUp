@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
@@ -5,6 +6,7 @@ import 'package:moodup/src/components/button.dart';
 import 'package:moodup/src/features/mood/screens/emotion.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
+
 
 class MoodPage extends StatefulWidget {
   const MoodPage({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class _MoodPageState extends State<MoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //drawer: showDrawer(controller.user.value.name!),
+      // drawer: showDrawer(controller.user.value.name!),
       backgroundColor: kGreen,
       body: SafeArea(
         child: FutureBuilder(
@@ -45,7 +47,7 @@ class _MoodPageState extends State<MoodPage> {
                       children: [
                         GestureDetector(
                           onTap: () => Scaffold.of(context).openDrawer(),
-                          child: const Padding(
+                          child:  const Padding(
                             padding: EdgeInsets.only(right: 10.0),
                             child: CircleAvatar(
                               radius: 20,
