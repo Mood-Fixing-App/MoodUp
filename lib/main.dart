@@ -1,27 +1,27 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// ignore: unused_import
-import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
-// ignore: unused_import
-import 'package:moodup/src/features/mood/screens/mood.dart';
-// ignore: unused_import
-import 'package:moodup/src/features/moodtrack/screens/moodtrack.dart';
-import 'package:moodup/src/features/moodtrack/screens/moodtrack_2.dart';
-// ignore: unused_import
-import 'package:moodup/src/features/settings/screens/moodtracking.dart';
 import 'package:moodup/src/utils/theme.dart';
 import 'package:moodup/src/servivces/api_services.dart';
-// ignore: unused_import
+import 'package:moodup/src/features/mood/screens/mood.dart';
+import 'package:moodup/src/features/moodtrack/screens/moodtrack.dart';
 import 'package:moodup/src/features/splash/screens/splash_screen.dart';
+import 'package:moodup/src/features/moodtrack/screens/moodtrack_2.dart';
+import 'package:moodup/src/features/settings/screens/moodtracking.dart';
 import 'package:moodup/src/features/mood/controller/mood_controller.dart';
 import 'package:moodup/src/features/post/controllers/post_controller.dart';
+import 'package:moodup/src/features/dashboard/screens/dashboard_screen.dart';
 import 'package:moodup/src/features/login/controllers/login_controller.dart';
 import 'package:moodup/src/features/onboard/controllers/onboard_controller.dart';
 import 'package:moodup/src/features/settings/controllers/setting_controller.dart';
 import 'package:moodup/src/features/register/controllers/register_controller.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
 import 'package:moodup/src/features/profile_picture_upload/controllers/profile_pic_upload_controller.dart';
+// ignore: unused_import
+// ignore: unused_import
+// ignore: unused_import
+// ignore: unused_import
+// ignore: unused_import
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,7 +58,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: MAppTheme.lightTheme,
       home:
-          const EmotionRecognitionScreen(), //EmotionRecognitionScreen(camera: camera),
+          SplashScreen(), //EmotionRecognitionScreen(camera: camera),
     );
   }
 }
