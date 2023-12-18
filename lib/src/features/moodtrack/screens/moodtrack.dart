@@ -51,9 +51,9 @@ class MoodTrackPage extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
+                          children: [
                             Text(
                               'Let\'s find your mood',
                               style: TextStyle(
@@ -81,7 +81,8 @@ class MoodTrackPage extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const CameraScreen(),
+                                      builder: (context) =>
+                                          const CameraScreen(),
                                     ),
                                   );
                                 },

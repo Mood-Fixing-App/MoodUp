@@ -9,6 +9,7 @@ environment:
 dependencies:
   animations: ^2.0.7
   camera: ^0.10.5+4
+  emoji_picker_flutter: ^1.6.3
   flutter:
     sdk: flutter
   flutter_chat_ui: ^1.6.6
