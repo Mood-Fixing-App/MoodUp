@@ -22,6 +22,7 @@ class _MoodPageState extends State<MoodPage> {
     'Exercise 5',
     'Exercise 6',
   ];
+
   final controller = Get.find<DashboardController>(tag: 'dashboard');
   @override
   Widget build(BuildContext context) {
@@ -87,11 +88,11 @@ class _MoodPageState extends State<MoodPage> {
                   ),
 
                   //  how do you feel
-                  const Padding(
-                    padding: EdgeInsets.all(25.0),
+                  Padding(
+                    padding: const EdgeInsets.all(25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           'How do you feel?',
                           style: TextStyle(
@@ -110,13 +111,13 @@ class _MoodPageState extends State<MoodPage> {
 
                   // moods
 
-                  const Padding(
-                    padding: EdgeInsets.all(25.0),
+                  Padding(
+                    padding: const EdgeInsets.all(25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          children: [
+                          children: const [
                             Emo(
                               emo: '😕',
                             ),
@@ -130,7 +131,7 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Emo(
                               emo: '😄',
                             ),
@@ -144,7 +145,7 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Emo(
                               emo: '😃',
                             ),
@@ -158,7 +159,7 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
                         Column(
-                          children: [
+                          children: const [
                             Emo(
                               emo: '😮',
                             ),
@@ -176,65 +177,78 @@ class _MoodPageState extends State<MoodPage> {
                   ),
 
                   Expanded(
-                    child: Container(
-                      color: kWhite,
-                      child: Padding(
-                        padding: const EdgeInsets.all(25.0),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              const Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Activities',
-                                    style: TextStyle(
-                                      color: kBlack,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Icon(Icons.more_horiz),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: kWhite,
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: const Column(
+                    child: FutureBuilder(
+                      future: controller.fetchArticleDetails(),
+                      builder:
+                          (BuildContext context, AsyncSnapshot<dynamic> sp) {
+                        if (!sp.hasData) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        } else {
+                          return Container(
+                            color: kWhite,
+                            child: Padding(
+                              padding: const EdgeInsets.all(25.0),
+                              child: Center(
+                                child: Column(
                                   children: [
-                                    ListTile(
-                                      leading: CircleAvatar(
-                                        radius: 25,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/slide1.png'),
-                                      ),
-                                      title: Text('Daily Crossword'),
-                                      subtitle: Text(
-                                          'Everyday a new crossword play to solve.'),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text(
+                                          'News',
+                                          style: TextStyle(
+                                            color: kBlack,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Icon(Icons.more_horiz),
+                                      ],
                                     ),
-                                    ListTile(
-                                      leading: CircleAvatar(
-                                        radius: 25,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/slide2.png'),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: kWhite,
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                        ),
+                                        child: ListView.builder(
+                                          itemCount: sp.data.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                            padding: const EdgeInsets.symmetric(vertical: 16),
+                                            child: ListTile(
+                                              leading: CircleAvatar(
+                                                radius: 25,
+                                                backgroundImage: sp.data[index]
+                                                            ['urlToImage'] !=
+                                                        null
+                                                    ? NetworkImage(
+                                                        sp.data[index]
+                                                            ['urlToImage'])
+                                                    : null,
+                                              ),
+                                              title:
+                                                  Text(sp.data[index]['title']),
+                                              subtitle: Text(
+                                                  sp.data[index]['author']),
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                      title: Text('Active Relaxation'),
-                                      subtitle:
-                                          Text('Mindful Breathing Exercise'),
                                     ),
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
+                            ),
+                          );
+                        }
+                      },
                     ),
                   ),
                 ],

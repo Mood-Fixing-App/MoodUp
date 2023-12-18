@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:camera/camera.dart';
-import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
-import 'package:moodup/src/constants/colors.dart';
 import 'dart:io';
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moodup/src/constants/colors.dart';
+
 
 class EmotionRecognitionScreen extends StatefulWidget {
   const EmotionRecognitionScreen({Key? key}) : super(key: key);
@@ -119,9 +119,9 @@ class _EmotionRecognitionScreenState extends State<EmotionRecognitionScreen> {
         preferredSize: const Size.fromHeight(60.0),
         child: AppBar(
           backgroundColor: kDarkGreen,
-          title: const Row(
+          title: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: const [
               Text('Emotional Regonize'),
             ],
           ),
