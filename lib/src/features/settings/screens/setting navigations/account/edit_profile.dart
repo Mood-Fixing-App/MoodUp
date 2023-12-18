@@ -13,6 +13,39 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   var controller = Get.find<SettingController>(tag: 'setting');
 
+  TextEditingController dobController =
+      TextEditingController(text: "January 1, 1990");
+
+  Future<void> _selectDate(BuildContext context) async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime(1990), // Set the initial date
+      firstDate: DateTime(1900), // Set the earliest date allowed
+      lastDate: DateTime.now(), // Set the latest date allowed (today)
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: Colors.green, // Change the header color to green
+            hintColor: Colors.green, // Change the text selection color to green
+            colorScheme: const ColorScheme.light(
+                primary:
+                    Colors.green), // Change the primary color scheme to green
+            buttonTheme:
+                const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        dobController.text = "${picked.toLocal()}"
+            .split(' ')[0]; // Update the date in the text field
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(

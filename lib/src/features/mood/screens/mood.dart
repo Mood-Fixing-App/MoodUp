@@ -176,58 +176,66 @@ class _MoodPageState extends State<MoodPage> {
                     ),
                   ),
 
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          color: kWhite,
-                          child: Padding(
-                            padding: const EdgeInsets.all(25.0),
-                            child: Center(
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: const [
-                                      Text(
-                                        'Exercises',
-                                        style: TextStyle(
-                                          color: kBlack,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Icon(Icons.more_horiz),
-                                    ],
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  SingleChildScrollView(
-                                    child: GridView.builder(
-                                      shrinkWrap: true,
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        crossAxisSpacing: 10.0,
-                                        mainAxisSpacing: 10.0,
-                                      ),
-                                      itemCount: exercises.length,
-                                      itemBuilder: (context, index) {
-                                        return ExerciseTile(
-                                            exerciseName: exercises[index]);
-                                      },
-                                    ),
-                                  ),
-                                ],
+                  Expanded(
+              child: Container(
+                color: kWhite,
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              'Activities',
+                              style: TextStyle(
+                                color: kBlack,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
+                            Icon(Icons.more_horiz),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: kWhite,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Column(
+                            children: const [
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage:
+                                      AssetImage('assets/images/slide1.png'),
+                                ),
+                                title: Text('Daily Crossword'),
+                                subtitle: Text('Everyday a new crossword play to solve.'),
+                              ),
+                              ListTile(
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundImage:
+                                      AssetImage('assets/images/slide2.png'),
+                                ),
+                                title: Text('Active Relaxation'),
+                                subtitle: Text('Mindful Breathing Exercise'),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
+                ),
+              ),
+            ),
                 ],
               );
             }
