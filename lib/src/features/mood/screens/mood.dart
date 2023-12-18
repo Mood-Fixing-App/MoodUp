@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/components/button.dart';
-import 'package:moodup/src/features/mood/screens/tile.dart';
 import 'package:moodup/src/features/mood/screens/emotion.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
@@ -23,6 +22,7 @@ class _MoodPageState extends State<MoodPage> {
     'Exercise 5',
     'Exercise 6',
   ];
+
   final controller = Get.find<DashboardController>(tag: 'dashboard');
   @override
   Widget build(BuildContext context) {
@@ -177,65 +177,80 @@ class _MoodPageState extends State<MoodPage> {
                   ),
 
                   Expanded(
-              child: Container(
-                color: kWhite,
-                child: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              'Activities',
-                              style: TextStyle(
-                                color: kBlack,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                    child: FutureBuilder(
+                      future: controller.fetchArticleDetails(),
+                      builder:
+                          (BuildContext context, AsyncSnapshot<dynamic> sp) {
+                        if (!sp.hasData) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        } else {
+                          return Container(
+                            color: kWhite,
+                            child: Padding(
+                              padding: const EdgeInsets.all(25.0),
+                              child: Center(
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: const [
+                                        Text(
+                                          'News',
+                                          style: TextStyle(
+                                            color: kBlack,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Icon(Icons.more_horiz),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: kWhite,
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                        ),
+                                        child: ListView.builder(
+                                          itemCount: sp.data.length,
+                                          itemBuilder: (context, index) =>
+                                              Padding(
+                                            padding: const EdgeInsets.symmetric(vertical: 16),
+                                            child: ListTile(
+                                              leading: CircleAvatar(
+                                                radius: 25,
+                                                backgroundImage: sp.data[index]
+                                                            ['urlToImage'] !=
+                                                        null
+                                                    ? NetworkImage(
+                                                        sp.data[index]
+                                                            ['urlToImage'])
+                                                    : null,
+                                              ),
+                                              title:
+                                                  Text(sp.data[index]['title']),
+                                              subtitle: Text(
+                                                  sp.data[index]['author']),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                            Icon(Icons.more_horiz),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: kWhite,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          child: Column(
-                            children: const [
-                              ListTile(
-                                leading: CircleAvatar(
-                                  radius: 25,
-                                  backgroundImage:
-                                      AssetImage('assets/images/slide1.png'),
-                                ),
-                                title: Text('Daily Crossword'),
-                                subtitle: Text('Everyday a new crossword play to solve.'),
-                              ),
-                              ListTile(
-                                leading: CircleAvatar(
-                                  radius: 25,
-                                  backgroundImage:
-                                      AssetImage('assets/images/slide2.png'),
-                                ),
-                                title: Text('Active Relaxation'),
-                                subtitle: Text('Mindful Breathing Exercise'),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                          );
+                        }
+                      },
                     ),
                   ),
-                ),
-              ),
-            ),
                 ],
               );
             }
