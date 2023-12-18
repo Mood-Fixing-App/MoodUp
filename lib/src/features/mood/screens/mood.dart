@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:moodup/src/constants/colors.dart';
 import 'package:moodup/src/components/button.dart';
-import 'package:moodup/src/features/mood/screens/tile.dart';
 import 'package:moodup/src/features/mood/screens/emotion.dart';
 import 'package:moodup/src/features/notifications/notifications.dart';
 import 'package:moodup/src/features/dashboard/controllers/dashboard_controller.dart';
@@ -88,11 +87,11 @@ class _MoodPageState extends State<MoodPage> {
                   ),
 
                   //  how do you feel
-                  Padding(
-                    padding: const EdgeInsets.all(25.0),
+                  const Padding(
+                    padding: EdgeInsets.all(25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text(
                           'How do you feel?',
                           style: TextStyle(
@@ -111,13 +110,13 @@ class _MoodPageState extends State<MoodPage> {
 
                   // moods
 
-                  Padding(
-                    padding: const EdgeInsets.all(25.0),
+                  const Padding(
+                    padding: EdgeInsets.all(25.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          children: const [
+                          children: [
                             Emo(
                               emo: '😕',
                             ),
@@ -131,7 +130,7 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
                         Column(
-                          children: const [
+                          children: [
                             Emo(
                               emo: '😄',
                             ),
@@ -145,7 +144,7 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
                         Column(
-                          children: const [
+                          children: [
                             Emo(
                               emo: '😃',
                             ),
@@ -159,7 +158,7 @@ class _MoodPageState extends State<MoodPage> {
                           ],
                         ),
                         Column(
-                          children: const [
+                          children: [
                             Emo(
                               emo: '😮',
                             ),
@@ -177,65 +176,67 @@ class _MoodPageState extends State<MoodPage> {
                   ),
 
                   Expanded(
-              child: Container(
-                color: kWhite,
-                child: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Center(
-                    child: Column(
-                      children: [
-                        
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Text(
-                              'Activities',
-                              style: TextStyle(
-                                color: kBlack,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Icon(Icons.more_horiz),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: kWhite,
-                            borderRadius: BorderRadius.circular(16),
-                          ),
+                    child: Container(
+                      color: kWhite,
+                      child: Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Center(
                           child: Column(
-                            children: const [
-                              ListTile(
-                                leading: CircleAvatar(
-                                  radius: 25,
-                                  backgroundImage:
-                                      AssetImage('assets/images/slide1.png'),
-                                ),
-                                title: Text('Daily Crossword'),
-                                subtitle: Text('Everyday a new crossword play to solve.'),
+                            children: [
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Activities',
+                                    style: TextStyle(
+                                      color: kBlack,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Icon(Icons.more_horiz),
+                                ],
                               ),
-                              ListTile(
-                                leading: CircleAvatar(
-                                  radius: 25,
-                                  backgroundImage:
-                                      AssetImage('assets/images/slide2.png'),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: kWhite,
+                                  borderRadius: BorderRadius.circular(16),
                                 ),
-                                title: Text('Active Relaxation'),
-                                subtitle: Text('Mindful Breathing Exercise'),
+                                child: const Column(
+                                  children: [
+                                    ListTile(
+                                      leading: CircleAvatar(
+                                        radius: 25,
+                                        backgroundImage: AssetImage(
+                                            'assets/images/slide1.png'),
+                                      ),
+                                      title: Text('Daily Crossword'),
+                                      subtitle: Text(
+                                          'Everyday a new crossword play to solve.'),
+                                    ),
+                                    ListTile(
+                                      leading: CircleAvatar(
+                                        radius: 25,
+                                        backgroundImage: AssetImage(
+                                            'assets/images/slide2.png'),
+                                      ),
+                                      title: Text('Active Relaxation'),
+                                      subtitle:
+                                          Text('Mindful Breathing Exercise'),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ),
                 ],
               );
             }

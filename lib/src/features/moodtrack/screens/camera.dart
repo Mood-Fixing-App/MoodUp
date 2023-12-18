@@ -65,10 +65,10 @@ Widget build(BuildContext context) {
           return Center(
             child: _cameraController.value.isInitialized
                 ? CameraPreview(_cameraController)
-                : Text('Camera Initialization Failed', style: TextStyle(color: Colors.red)),
+                : const Text('Camera Initialization Failed', style: TextStyle(color: Colors.red)),
           );
         } else {
-          return Center(child: CircularProgressIndicator(color: kGreen));
+          return const Center(child: CircularProgressIndicator(color: kGreen));
         }
       },
     ),
@@ -76,6 +76,7 @@ Widget build(BuildContext context) {
 }
 
 Future<void> _initializeCameraController() async {
+  // ignore: unnecessary_null_comparison
   if (_cameraController == null) {
     try {
       cameras = await availableCameras();
