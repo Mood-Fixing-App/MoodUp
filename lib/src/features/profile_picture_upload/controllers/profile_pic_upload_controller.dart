@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:moodup/src/constants/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePicUploadController extends GetxController {
@@ -24,7 +25,7 @@ class ProfilePicUploadController extends GetxController {
     var request = http.MultipartRequest(
       'POST',
       Uri.parse(
-          'https://king-prawn-app-zrp6n.ondigitalocean.app/api/user/profile/image/update'),
+          kUploadImageUrl),
     );
     request.fields['email'] = 'hashand379@gmail.com';
     request.files.add(
@@ -57,7 +58,7 @@ class ProfilePicUploadController extends GetxController {
       "email": email,
     };
     Uri url = Uri.parse(
-        'https://king-prawn-app-zrp6n.ondigitalocean.app/api/user/profile/image/show');
+        kShowImageUrl);
 
     var response = await http.post(url, body: request);
     uploadedImage = response.body as File;

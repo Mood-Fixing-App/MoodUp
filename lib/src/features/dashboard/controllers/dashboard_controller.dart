@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:moodup/src/constants/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moodup/src/features/register/models/user.dart';
 
@@ -30,8 +31,9 @@ class DashboardController extends GetxController {
 
   fetchUser() async {
     String email = await emailShared();
+
     Uri url = Uri.parse(
-        'https://king-prawn-app-zrp6n.ondigitalocean.app/api/user/$email');
+        '$kLoggedInUserUrl$email');
     var response = await http.get(url);
     user.value = User.fromJson(jsonDecode(response.body)['user']);
     return user;
